@@ -1,0 +1,318 @@
+* {
+    box-sizing: border-box;
+    font-family: 'Segoe UI Variable Display';
+}
+
+:root {
+    font-family: 'Segoe UI Variable Display', sans-serif;
+
+    /* Flexoki Color Scheme */
+    --paper: #FFFCF080;
+    --text: var(--black);
+
+}
+
+
+
+.dark {
+    --paper: #1a1818;
+    --text: var(--base-50);
+    
+}
+
+body {
+    padding: var(--body-padding);
+    padding-top: calc(var(--body-padding)/var(--h1-line-height));
+    margin: 0;
+    background-color: var(--paper);
+    transition: background-color 0.3s, color 0.3s;
+    color: var(--text)
+}
+
+#theme-toggler {
+    position: absolute;
+    right: 100px
+}
+
+/* Table Cells: Colors */
+:root {
+    --table-inactive-cells: #878580;
+    --table-border: none;
+    --table-cell-border: var(--base-100);
+}
+
+.dark {
+    --table-inactive-cells: var(--base-400);
+    --table-border: none;
+    --table-cell-border: var(--base-900);
+    --inactive-cells-background-color: var(--black)
+}
+table * {
+    border: calc(0.618px)solid var(--table-cell-border);
+    color: var(--table-inactive-cells);
+    background-color: var(--inactive-cells-background-color);
+    width: auto;
+    transition: all 0.3s;
+    transition-timing-function: ease-in-out;
+
+}
+
+table {
+    border: 1.618px solid var(--table-border);
+    border-spacing: 0;
+    border-radius: 1em;
+    margin: auto;
+    margin-top: 4em;
+}
+
+table td {
+    padding: 0.8em 2em;
+    margin: auto;
+    text-align: center;
+    transition: width 0.3s; /* Optional: if you want to animate individual cell width */
+
+}
+
+table tr>td {
+    border-top: none;
+    border-left: none
+}
+
+table tr>td:last-of-type {
+    border-right: none;
+    border-top: none;
+}
+
+table tbody tr:last-of-type td {
+    border-bottom: none;
+}
+table tbody tr:last-of-type td:first-of-type {
+    border-radius: 0 0 0 0.85em;
+}
+
+
+
+
+/* Table Header: Colors */
+:root {
+    --table-header-background-color: var(--base-150);
+    --table-header-color: var(--black)
+}
+
+.dark {
+    --table-header-background-color: var(--base-900);
+    --table-header-color: var(--white)
+}
+
+table thead * {
+    font-weight: 500;
+    background-color: var(--table-header-background-color);
+    color: var(--table-header-color);
+    border-right-color: transparent;
+}
+
+table thead tr td:first-of-type {
+    border-radius: 0.85em 0 0 0;
+    border-color: var(--table-border);
+    border-right: none;
+    border-bottom: none;
+}
+
+table thead tr td:last-of-type {
+    border-radius: 0 0.85em 0 0;
+}
+
+/* Days: Colors */
+:root {
+    --table-days-color: var(--base-850);
+    --table-days-background-color: var(--base-50);
+    --table-right-border: 1.618px solid var(--base-300);
+    
+}
+
+.dark {
+    --table-days-background-color: var(--base-850);
+    --table-right-border: 0.618px solid var(--base-50);
+    --table-bottom-border: 0.618px solid var(--base-500);
+    --table-days-color: var(--base-100)
+}
+
+td.day {
+    text-align: left;
+    color: var(--table-days-color);
+    background-color: var(--table-days-background-color);
+    /* border-right: var(--table-right-border); */
+    border-bottom: var(--table-bottom-border);
+}
+
+/* Rowspan: Colors */
+:root {
+    --table-rowspan-background-color: var(--base-50);
+    --table-rowspan-color: var(--base-800);
+}
+
+.dark {
+    --table-rowspan-background-color: var(--base-950);
+    --table-rowspan-color: var(--base-200);
+
+}
+
+td[rowspan] {
+    border-bottom: none;
+    line-height: 2;
+    color: var(--table-rowspan-color);
+    background-color: var(--table-rowspan-background-color);
+}
+
+.vertical-text {
+
+    writing-mode: vertical-rl;
+    text-orientation: upright;
+    text-transform: uppercase;
+    letter-spacing: 0.6em;
+}
+
+:root {
+    --add-subject-border: var(--base-500);
+}
+#add-entry {
+    border: 1px solid var(--add-subject-border);
+    display: flex;
+    width: fit-content;
+    padding: 10px;
+    gap: 10px;
+}
+
+/* table Colors */
+:root {
+    --on-highlighted-cell: var(--white);
+    --a: var(--red-400);
+
+    --b: var(--orange-400);
+    --c: var(--yellow-400);
+    --d: var(--green-400);
+    --e: var(--cyan-400);
+    --f: var(--blue-400);
+    --g: var(--purple-400);
+    --p: var(--magenta-400);
+    /* --q: var(--hot-pink-400); */
+}
+
+.dark {
+    --a: var(--red-600);
+    --b: var(--orange-600);
+    --c: var(--yellow-600);
+    --d: var(--green-600);
+    --e: var(--cyan-600);
+    --f: var(--blue-600);
+    --g: var(--purple-600);
+    --p: var(--magenta-600);
+    /* --q: var(--hot-pink-600); */
+}
+.a, .b, .c, .d, .e, .f, .g, .p, .q, .r, .s {
+    border-right: none;
+    border-bottom: none;
+}
+.a {
+    background-color: var(--a);
+    color: var(--on-highlighted-cell);
+}
+
+.b {
+    background-color: var(--b);
+    color: var(--on-highlighted-cell);
+}
+.c {
+    background-color: var(--c);
+    color: var(--on-highlighted-cell);
+}
+.d {
+    background-color: var(--d);
+    color: var(--on-highlighted-cell);
+}
+.e {
+    background-color: var(--e);
+    color: var(--on-highlighted-cell);
+}
+.f {
+    background-color: var(--f);
+    color: var(--on-highlighted-cell);
+}
+
+
+:root {
+    /* semantic colors */
+    --white: #FFFCF0;
+    --base-50: #F2F0E5;
+    --base-100: #E6E4D9;
+    --base-150: #DAD8CE;
+    --base-200: #CECDC3;
+    --base-300: #B7B5AC;
+    --base-500: #878580;
+    --base-600: #6F6E69;
+    --base-700: #575653;
+    --base-800: #403E3C;
+    --base-850: #343331;
+    --base-900: #282726;
+    --base-950: #1C1B1A;
+
+    --black: #100F0F;
+    --black-opacity-10: #100F0F10;
+    --paper-opacity-10: #FFFCF010;
+
+    --red-400: #D14D41;
+    --red-600: #AF3029;
+    --orange-400: #DA702C;
+    --orange-600: #BC5215;
+    --yellow-400: #D0A215;
+    --yellow-600: #AD8301;
+    --green-400: #879A39;
+    --green-600: #66800B;
+    --cyan-400: #3AA99F;
+    --cyan-600: #24837B;
+    --blue-400: #4385BE;
+    --blue-600: #205EA6;
+    --purple-400: #8B7EC8;
+    --purple-600: #5E409D;
+    --magenta-400: #CE5D97;
+    --magenta-600: #A02F6F;
+}
+
+:root {
+    /* Typography */
+    --body-padding: 4.235em;
+
+    --h1-line-height: 1.129;
+    --h1-font-weight: 600;
+    --h1-font-size: 2.235em;
+    --h1-letter-spacing: -0.022em;
+
+    --h2-line-height: 1.129;
+    --h2-font-weight: 500;
+    --h2-font-size: 1.618em;
+    --h2-letter-spacing: -0.022em;
+
+    --input-line-height: 1.618;
+    --input-font-weight: 400;
+    --input-font-size: 1.129em;
+    --input-letter-spacing: -0.017em;
+
+    --input-subject-code-font-size: 1.129em;
+    --input-subject-name-font-size: 0.78em;
+}
+h1 {
+    font-size: var(--h1-font-size);
+    line-height: var(--h1-line-height);
+    font-weight: var(--h1-font-weight);
+    letter-spacing: var(--h1-letter-spacing);
+    margin-top: 0;
+
+}
+
+h2 {
+    font-size: var(--h2-font-size);
+    line-height: var(--h2-line-height);
+    font-weight: var(--h2-font-weight);
+    letter-spacing: var(--h2-letter-spacing);
+    margin-top: 0;
+}

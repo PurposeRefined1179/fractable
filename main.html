@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fractable - TimeTable Generator for Fractal Academic System</title>
+    <link rel="stylesheet" href="./styles.css">
+</head>
+
+<body>
+    <button id="theme-toggler">Dark Mode</button>
+    <h1>Timetable Generator</h1>
+
+    <div id="add-entry">
+        <input type="text" placeholder="Subject Code" id="subject-code">
+        <select id="slot-selector">
+            <option id="slot_a">Slot A</option>
+            <option id="slot_b">Slot B</option>
+            <option id="slot_c">Slot C</option>
+            <option id="slot_d">Slot D</option>
+            <option id="slot_e">Slot E</option>
+            <option id="slot_f">Slot F</option>
+            <option id="slot_g">Slot G</option>
+            <option id="slot_p">Slot P</option>
+            <option id="slot_q">Slot Q</option>
+            <option id="slot_r">Slot R</option>
+            <option id="slot_s">Slot S</option>
+        </select>
+        <button type="button" id="add-subject">Add Subject</button>
+    </div>
+    <section>
+        <table id="output-table">
+            <thead>
+                <tr>
+                    <td>Day</td>
+                    <td>9.00<br>9.55</td>
+                    <td>10:00<br>10.55</td>
+                    <td>11.00<br>11.55</td>
+                    <td>12.00<br>12.55</td>
+                    <td>12.55<br>14.30</td>
+                    <td>14.30<br>15.55</td>
+                    <td>16.00<br>17.25</td>
+                    <!-- <td></td>
+                    <td>18.00<br>19.25</td>
+                    <td>19.30<br>21.00</td> -->
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="day">Monday</td>
+                    <td id="a">A</td>
+                    <td id="b">B</td>
+                    <td id="c">C</td>
+                    <td id="d">D</td>
+                    <td rowspan="5" class="vertical-text">Lunch</td>
+                    <td id="p">P</td>
+                    <td id="q">Q</td>
+                    <!-- <td rowspan="5" class="vertical-text">Snack</td>
+                    <td id="w">W</td>
+                    <td id="x">X</td> -->
+                </tr>
+                <tr>
+                    <td class="day">Tuesday</td>
+                    <td id="d">D</td>
+                    <td id="e">E</td>
+                    <td id="f">F</td>
+                    <td id="g">G</td>
+                    <td id="r">R</td>
+                    <td id="s">S</td>
+
+                    <!-- <td id="y">Y</td>
+                    <td id="z">Z</td> -->
+                </tr>
+                <tr>
+                    <td class="day">Wednesday</td>
+                    <td id="b">B</td>
+                    <td id="c">C</td>
+                    <td id="a">A</td>
+                    <td id="g">G</td>
+                    <td id="f">F</td>
+                    <td id="cha">?</td>
+
+                    <!-- <td id=""></td>
+                    <td id=""></td> -->
+                </tr>
+                <tr>
+                    <td class="day">Thursday</td>
+                    <td id="c">C</td>
+                    <td id="a">A</td>
+                    <td id="b">B</td>
+                    <td id="e">E</td>
+                    <td id="q">Q</td>
+                    <td id="p">P</td>
+
+                    <!-- <td id="w">W</td>
+                    <td id="x">X</td> -->
+                </tr>
+                <tr>
+                    <td class="day">Friday</td>
+                    <td id="e">E</td>
+                    <td id="F">F</td>
+                    <td id="d">D</td>
+                    <td id="g">G</td>
+                    <td id="s">S</td>
+                    <td id="r">R</td>
+
+                    <!-- <td id="y">Y</td>
+                    <td id="z">Z</td> -->
+                </tr>
+            </tbody>
+        </table>
+    </section>
+</body>
+<script src="./script.js"></script>
+
+</html>
