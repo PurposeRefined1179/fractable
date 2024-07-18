@@ -1,0 +1,354 @@
+* {
+    box-sizing: border-box;
+    font-family: "Segoe UI Variable Display", "Inter";
+}
+
+:root {
+    font-family: "Segoe UI Variable Display", "Inter";
+
+    /* Flexoki Color Scheme */
+    --paper: #FFFCF080;
+    --text: var(--black);
+}
+
+
+
+.dark {
+    --paper: #1a1818;
+    --text: var(--base-50);
+
+}
+
+body {
+    padding: var(--body-padding);
+    padding-top: calc(var(--body-padding)/var(--h1-line-height));
+    margin: 0;
+    background-color: var(--paper);
+    transition: all 0.3s;
+    color: var(--text)
+}
+
+
+:root {
+    --theme-toggler-background-color: var(--base-100);
+    --theme-toggler-border:1px solid var(--base-300);
+    --theme-toggler-svg-color: var(--base-700);
+    --theme-toggler-svg-content: something;
+}
+.dark {
+    --theme-toggler-background-color: var(--base-900);
+    --theme-toggler-border: 1px solid var(--base-800);
+    --theme-toggler-svg-color: var(--base-300);
+    --theme-toggler-svg-content: something_else;
+
+}
+#theme-toggler {
+    position: absolute;
+    right: 100px;
+    padding: 0.618em;
+    background-color: var(--theme-toggler-background-color);
+    border: var(--theme-toggler-border);
+    border-radius: 900px;
+    display: flex;
+}
+
+#theme-toggler:hover {
+    cursor: pointer;
+}
+
+#theme-toggler svg {
+    color: var(--theme-toggler-svg-color);
+}
+
+/* Table Cells: Colors */
+:root {
+    --table-inactive-cells: #878580;
+    --table-border: var(--base-100);
+    --table-cell-border: var(--base-100);
+}
+
+.dark {
+    --table-inactive-cells: var(--base-400);
+    --table-border: var(--base-800);
+    --table-cell-border: var(--base-900);
+    --inactive-cells-background-color: var(--black)
+}
+
+table * {
+    color: var(--table-inactive-cells);
+    background-color: var(--inactive-cells-background-color);
+    width: auto;
+}
+
+table {
+    margin: auto;
+    margin-top: 4em;
+    border-collapse: separate;
+}
+
+table td {
+    padding: 0.8em 2em;
+    margin: auto;
+    text-align: center;
+}
+
+/* Table Header: Colors */
+:root {
+    --table-header-background-color: var(--base-150);
+    --table-header-color: var(--black)
+}
+
+.dark {
+    --table-header-background-color: var(--base-900);
+    --table-header-color: var(--white)
+}
+
+table th {
+    font-weight: 500;
+    background-color: var(--table-header-background-color);
+    color: var(--table-header-color);
+    /* border-right-color: transparent; */
+    padding: 1em 2em;
+}
+
+
+/* Days: Colors */
+:root {
+    --table-days-color: var(--base-850);
+    --table-days-background-color: var(--base-50);
+    --table-right-border: 1.618px solid var(--base-300);
+
+}
+
+.dark {
+    --table-days-background-color: var(--base-850);
+    --table-right-border: 0.618px solid var(--base-50);
+    --table-bottom-border: 0.618px solid var(--base-500);
+    --table-days-color: var(--base-100)
+}
+
+td.day {
+    text-align: left;
+    color: var(--table-days-color);
+    background-color: var(--table-days-background-color);
+    /* border-right: var(--table-right-border); */
+    /* border-bottom: var(--table-bottom-border); */
+}
+
+/* Rowspan: Colors */
+:root {
+    --table-rowspan-background-color: var(--base-50);
+    --table-rowspan-color: var(--base-800);
+}
+
+.dark {
+    --table-rowspan-background-color: var(--base-950);
+    --table-rowspan-color: var(--base-200);
+
+}
+
+td[rowspan] {
+    line-height: 2;
+    color: var(--table-rowspan-color);
+    background-color: var(--table-rowspan-background-color);
+}
+td[rowspan], th[rowspan] {
+    padding-right: 12px;
+    padding-left: 12px;
+
+}
+
+td[rowspan] svg {
+    background-color: transparent;
+}
+
+.vertical-text {
+
+    writing-mode: vertical-rl;
+    text-orientation: upright;
+    text-transform: uppercase;
+    letter-spacing: 0.6em;
+}
+
+:root {
+    --add-subject-border: var(--base-500);
+}
+
+#add-entry {
+    border: 1px solid var(--add-subject-border);
+    display: flex;
+    width: fit-content;
+    padding: 10px;
+    gap: 10px;
+}
+
+.classes {
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: 0.618em;
+}
+h2 {
+    width: 100%;
+}
+.class {
+    border: 1px solid var(--add-subject-border);
+    display: flex;
+    width: fit-content;
+    padding: 10px;
+    gap: 10px;
+}
+
+
+
+.a,
+.b,
+.c,
+.d,
+.e,
+.f,
+.g,
+.p,
+.q,
+.r,
+.s {
+    font-weight: 500;
+}
+
+.a {
+    background-color: var(--a);
+    color: var(--on-highlighted-cell);
+}
+
+.b {
+    background-color: var(--b);
+    color: var(--on-highlighted-cell);
+}
+
+.c {
+    background-color: var(--c);
+    color: var(--on-highlighted-cell);
+}
+
+.d {
+    background-color: var(--d);
+    color: var(--on-highlighted-cell);
+}
+
+.e {
+    background-color: var(--e);
+    color: var(--on-highlighted-cell);
+}
+
+.f {
+    background-color: var(--f);
+    color: var(--on-highlighted-cell);
+}
+
+.g {
+    background-color: var(--g);
+    color: var(--on-highlighted-cell);
+}
+
+.p {
+    background-color: var(--p);
+    color: var(--on-highlighted-cell);
+}
+
+.q {
+    background-color: var(--q);
+    color: var(--on-highlighted-cell);
+}
+
+.r {
+    background-color: var(--r);
+    color: var(--on-highlighted-cell);
+}
+
+.s {
+    background-color: var(--s);
+    color: var(--on-highlighted-cell);
+}
+
+:root {
+    /* Typography */
+    --body-padding: 4.235em;
+
+    --h1-line-height: 1.129;
+    --h1-font-weight: 700;
+    --h1-font-size: 2.235em;
+    --h1-letter-spacing: -0.022em;
+
+    --h2-line-height: 1.129;
+    --h2-font-weight: 500;
+    --h2-font-size: 1.618em;
+    --h2-letter-spacing: -0.022em;
+
+    --input-line-height: 1.618;
+    --input-font-weight: 400;
+    --input-font-size: 1.129em;
+    --input-letter-spacing: -0.017em;
+
+    --input-subject-code-font-size: 1.129em;
+    --input-subject-name-font-size: 0.78em;
+}
+
+h1 {
+    font-size: var(--h1-font-size);
+    line-height: var(--h1-line-height);
+    font-weight: var(--h1-font-weight);
+    letter-spacing: var(--h1-letter-spacing);
+    margin-top: 0;
+
+}
+
+h2 {
+    font-size: var(--h2-font-size);
+    line-height: var(--h2-line-height);
+    font-weight: var(--h2-font-weight);
+    letter-spacing: var(--h2-letter-spacing);
+    margin-top: 1em;
+}
+
+table {
+    border-collapse: separate;
+    border-spacing: 0;
+}
+
+table tr th,
+table tr td {
+    border-right: 1px solid var(--table-border);
+    border-bottom: 1px solid var(--table-border);
+}
+
+table tr th:not(:last-of-type) {
+    border-right: none;
+}
+
+table tr th:first-child,
+table tr td:first-child {
+    border-left: 1px solid var(--table-border);
+}
+
+table tr th {
+    border-top: solid 1px var(--table-border);
+}
+
+/* top-left border-radius */
+table tr:first-child th:first-child {
+    border-top-left-radius: 6px;
+}
+
+/* top-right border-radius */
+table tr:first-child th:last-child {
+    border-top-right-radius: 6px;
+}
+
+/* bottom-left border-radius */
+table tr:last-child td:first-child {
+    border-bottom-left-radius: 6px;
+}
+
+/* bottom-right border-radius */
+table tr:last-child td:last-child {
+    border-bottom-right-radius: 6px;
+}

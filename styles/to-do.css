@@ -1,0 +1,26 @@
+.todo-section {
+    font-family: Arial, sans-serif;
+}
+.todo-section h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+.todo-list {
+    list-style-type: none;
+    padding: 0;
+}
+.todo-list li {
+    display: block;
+    align-items: center;
+    margin-bottom: 8px;
+    line-height: 1.9
+}
+.todo-list li > ul {
+    margin-left: 18px;
+}
+.todo-list input[type="checkbox"] {
+    margin-right: 10px;
+}
+.todo-list .completed {
+    text-decoration: none;
+}

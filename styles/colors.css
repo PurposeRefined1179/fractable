@@ -1,0 +1,74 @@
+:root {
+    /* semantic colors */
+    --white: #FFFCF0;
+    --base-50: #F2F0E5;
+    --base-100: #E6E4D9;
+    --base-150: #DAD8CE;
+    --base-200: #CECDC3;
+    --base-300: #B7B5AC;
+    --base-500: #878580;
+    --base-600: #6F6E69;
+    --base-700: #575653;
+    --base-800: #403E3C;
+    --base-850: #343331;
+    --base-900: #282726;
+    --base-950: #1C1B1A;
+
+    --black: #100F0F;
+    --black-opacity-10: #100F0F10;
+    --paper-opacity-10: #FFFCF010;
+
+    --red-400: #D14D41;
+    --red-600: #AF3029;
+    --orange-400: #DA702C;
+    --orange-600: #BC5215;
+    --yellow-400: #D0A215;
+    --yellow-600: #AD8301;
+    --green-400: #879A39;
+    --green-600: #66800B;
+    --cyan-400: #3AA99F;
+    --cyan-600: #24837B;
+    --blue-400: #4385BE;
+    --blue-600: #205EA6;
+    --purple-400: #8B7EC8;
+    --purple-600: #5E409D;
+    --magenta-400: #CE5D97;
+    --magenta-600: #A02F6F;
+    --hot-pink-400: #ff204e;
+    --hot-pink-600: #ec1f5b;
+    --teal-400: #00A8CC;
+    --teal-600: #0C7B93;
+    --wood-400: #9c763e;
+    --wood-600: #DBAFA0;
+}
+
+/* table Colors */
+:root {
+    --on-highlighted-cell: var(--white);
+    --a: var(--red-400);
+
+    --b: var(--orange-400);
+    --c: var(--yellow-400);
+    --d: var(--green-400);
+    --e: var(--cyan-400);
+    --f: var(--blue-400);
+    --g: var(--purple-400);
+    --p: var(--magenta-400);
+    --q: var(--hot-pink-400);
+    --r: var(--teal-400);
+    --s: var(--wood-400);
+}
+
+.dark {
+    --a: var(--red-600);
+    --b: var(--orange-600);
+    --c: var(--yellow-600);
+    --d: var(--green-600);
+    --e: var(--cyan-600);
+    --f: var(--blue-600);
+    --g: var(--purple-600);
+    --p: var(--magenta-600);
+    --q: var(--hot-pink-600);
+    --r: var(--teal-600);
+    --s: var(--wood-600);
+}

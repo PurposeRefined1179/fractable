@@ -6,14 +6,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Fractable - TimeTable Generator for Fractal Academic System</title>
 
-    <link rel="stylesheet" href="./styles.css">
+    <link rel="stylesheet" href="./styles/styles.css">
+    <link rel="stylesheet" href="./styles/colors.css">
+    <link rel="stylesheet" href="./styles/to-do.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
 </head>
 
 <body>
-    <button id="theme-toggler">Dark Mode</button>
+    <button title="Switch to Dark Mode" id="theme-toggler" aria-label="Switch to Dark Mode"><svg
+            xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+            class="lucide lucide-moon">
+            <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z" />
+        </svg></button>
     <h1>Timetable Generator</h1>
 
     <div id="add-entry">
@@ -29,7 +36,7 @@
             <option id="slot_p">Slot P</option>
             <option id="slot_q">Slot Q</option>
             <option id="slot_r">Slot R</option>
-            <option id="slot_s">Slot S</option>
+            <option id="slot_0">Slot s0</option>
         </select>
         <button type="button" id="add-subject">Add Subject</button>
     </div>
@@ -41,7 +48,7 @@
                 <th>10:00<br>10.55</th>
                 <th>11.00<br>11.55</th>
                 <th>12.00<br>12.55</th>
-                <th>12.55<br>14.30</th>
+                <th rowspan="1">12.55<br>14.30</th>
                 <th>14.30<br>15.55</th>
                 <th>16.00<br>17.25</th>
                 <!-- <td></td>
@@ -55,7 +62,13 @@
                     <td id="b">B</td>
                     <td id="c">C</td>
                     <td id="d">D</td>
-                    <td rowspan="5" class="vertical-text">Lunch</td>
+                    <td rowspan="5" class="vertical-text"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-utensils">
+                            <path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2" />
+                            <path d="M7 2v20" />
+                            <path d="M21 15V2a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3Zm0 0v7" />
+                        </svg></td>
                     <td id="p">P</td>
                     <td id="q">Q</td>
                     <!-- <td rowspan="5" class="vertical-text">Snack</td>
@@ -81,7 +94,7 @@
                     <td id="a">A</td>
                     <td id="g">G</td>
                     <td id="f">F</td>
-                    <td id="cha">?</td>
+                    <td id="s0">s0</td>
 
                     <!-- <td id=""></td>
                     <td id=""></td> -->
@@ -101,7 +114,7 @@
                 <tr>
                     <td class="day">Friday</td>
                     <td id="e">E</td>
-                    <td id="F">F</td>
+                    <td id="f">F</td>
                     <td id="d">D</td>
                     <td id="g">G</td>
                     <td id="s">S</td>
@@ -113,31 +126,41 @@
             </tbody>
         </table>
     </section>
-    <div id="add-entry">
-        CS1010
-    </div>
-    <section>
-        <h2>Classes</h2>
+    <!-- <section class="classes">
+        <h2 width="100%">Classes</h2>
+        <div class="class">
+            <span>CS1010</span> <span>|</span> <span>Slot A</span>
+            <span>Monday: 9 am</span>
+            <span>Wednesday: 11 am</span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.618" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-x"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+        </div>
+        <div class="class">
+            <span>CS1010</span> <span>Slot A</span>
+            <span>Monday: 9 am</span>
+            <span>Wednesday: 11 am</span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.618" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-x"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+        </div>
 
-    </section>
+    </section> -->
 
-    <section>
+    <section class="todo-section">
         <h2>To-do</h2>
-        <ul>
-            <li>Colors for remaining slots (P, Q, R and S)</li>
-            <li>Styling
-                <ul>
-                    <li>
-                        Inputs
-                    </li>
-                    <li>
-                        Dark mode toggle
-                    </li>
+        <ul class="todo-list">
+            <li><input type="checkbox" checked><span class="completed">Colors for remaining slots (P, Q, R and S)</span></li>
+                </li>
+                <li><input type="checkbox">Mobile: remove table and add a schedule (sorted by day)
+                </li>
+            <li><input type="checkbox">Schedule: sort by subject
+            <li><b>Styling</b>
+                <ul class="todo-list">
+                    <li><input type="checkbox">Inputs</li>
+                    <li><input type="checkbox" checked>Dark mode toggle</li>
                 </ul>
             </li>
-            <li>js Bookmarklet (?) (will make this app work without having to enter any input - extracts html from
-                erp.iith.ac.in)</li>
-            <li>Collect Feedback</li>
+            <li><input type="checkbox">js Bookmarklet (will make this app work without having to enter any input -
+                extracts html from <a href="https://erp.iith.ac.in">IITH ERP website</a>)</li>
+                <li><input type="checkbox">Reminder Shortcut (iOS + iPadOS + macOS)</li>
+            <li><input type="checkbox">(Speculative) Google Calendar Integration</li>
         </ul>
     </section>
 </body>
