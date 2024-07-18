@@ -1,10 +1,10 @@
 * {
     box-sizing: border-box;
-    font-family: 'Segoe UI Variable Display';
+    font-family: "Segoe UI Variable Display", "Inter";
 }
 
 :root {
-    font-family: 'Segoe UI Variable Display', sans-serif;
+    font-family: "Segoe UI Variable Display", "Inter";
 
     /* Flexoki Color Scheme */
     --paper: #FFFCF080;
@@ -17,7 +17,7 @@
 .dark {
     --paper: #1a1818;
     --text: var(--base-50);
-    
+
 }
 
 body {
@@ -25,7 +25,7 @@ body {
     padding-top: calc(var(--body-padding)/var(--h1-line-height));
     margin: 0;
     background-color: var(--paper);
-    transition: background-color 0.3s, color 0.3s;
+    transition: all 0.3s;
     color: var(--text)
 }
 
@@ -37,61 +37,36 @@ body {
 /* Table Cells: Colors */
 :root {
     --table-inactive-cells: #878580;
-    --table-border: none;
+    --table-border: var(--base-100);
     --table-cell-border: var(--base-100);
 }
 
 .dark {
     --table-inactive-cells: var(--base-400);
-    --table-border: none;
+    --table-border: var(--base-800);
     --table-cell-border: var(--base-900);
     --inactive-cells-background-color: var(--black)
 }
+
 table * {
-    border: calc(0.618px)solid var(--table-cell-border);
     color: var(--table-inactive-cells);
     background-color: var(--inactive-cells-background-color);
     width: auto;
-    transition: all 0.3s;
-    transition-timing-function: ease-in-out;
-
+    transition: width 0.3s;
 }
 
 table {
-    border: 1.618px solid var(--table-border);
-    border-spacing: 0;
-    border-radius: 1em;
     margin: auto;
     margin-top: 4em;
+    border-collapse: separate;
 }
 
 table td {
     padding: 0.8em 2em;
     margin: auto;
     text-align: center;
-    transition: width 0.3s; /* Optional: if you want to animate individual cell width */
-
+    transition: width 0.3s;
 }
-
-table tr>td {
-    border-top: none;
-    border-left: none
-}
-
-table tr>td:last-of-type {
-    border-right: none;
-    border-top: none;
-}
-
-table tbody tr:last-of-type td {
-    border-bottom: none;
-}
-table tbody tr:last-of-type td:first-of-type {
-    border-radius: 0 0 0 0.85em;
-}
-
-
-
 
 /* Table Header: Colors */
 :root {
@@ -104,30 +79,21 @@ table tbody tr:last-of-type td:first-of-type {
     --table-header-color: var(--white)
 }
 
-table thead * {
+table th {
     font-weight: 500;
     background-color: var(--table-header-background-color);
     color: var(--table-header-color);
-    border-right-color: transparent;
+    /* border-right-color: transparent; */
+    padding: 1em 2em;
 }
 
-table thead tr td:first-of-type {
-    border-radius: 0.85em 0 0 0;
-    border-color: var(--table-border);
-    border-right: none;
-    border-bottom: none;
-}
-
-table thead tr td:last-of-type {
-    border-radius: 0 0.85em 0 0;
-}
 
 /* Days: Colors */
 :root {
     --table-days-color: var(--base-850);
     --table-days-background-color: var(--base-50);
     --table-right-border: 1.618px solid var(--base-300);
-    
+
 }
 
 .dark {
@@ -142,7 +108,7 @@ td.day {
     color: var(--table-days-color);
     background-color: var(--table-days-background-color);
     /* border-right: var(--table-right-border); */
-    border-bottom: var(--table-bottom-border);
+    /* border-bottom: var(--table-bottom-border); */
 }
 
 /* Rowspan: Colors */
@@ -158,7 +124,6 @@ td.day {
 }
 
 td[rowspan] {
-    border-bottom: none;
     line-height: 2;
     color: var(--table-rowspan-color);
     background-color: var(--table-rowspan-background-color);
@@ -175,6 +140,7 @@ td[rowspan] {
 :root {
     --add-subject-border: var(--base-500);
 }
+
 #add-entry {
     border: 1px solid var(--add-subject-border);
     display: flex;
@@ -209,10 +175,22 @@ td[rowspan] {
     --p: var(--magenta-600);
     /* --q: var(--hot-pink-600); */
 }
-.a, .b, .c, .d, .e, .f, .g, .p, .q, .r, .s {
+
+.a,
+.b,
+.c,
+.d,
+.e,
+.f,
+.g,
+.p,
+.q,
+.r,
+.s {
     border-right: none;
     border-bottom: none;
 }
+
 .a {
     background-color: var(--a);
     color: var(--on-highlighted-cell);
@@ -222,18 +200,22 @@ td[rowspan] {
     background-color: var(--b);
     color: var(--on-highlighted-cell);
 }
+
 .c {
     background-color: var(--c);
     color: var(--on-highlighted-cell);
 }
+
 .d {
     background-color: var(--d);
     color: var(--on-highlighted-cell);
 }
+
 .e {
     background-color: var(--e);
     color: var(--on-highlighted-cell);
 }
+
 .f {
     background-color: var(--f);
     color: var(--on-highlighted-cell);
@@ -300,6 +282,7 @@ td[rowspan] {
     --input-subject-code-font-size: 1.129em;
     --input-subject-name-font-size: 0.78em;
 }
+
 h1 {
     font-size: var(--h1-font-size);
     line-height: var(--h1-line-height);
@@ -314,5 +297,48 @@ h2 {
     line-height: var(--h2-line-height);
     font-weight: var(--h2-font-weight);
     letter-spacing: var(--h2-letter-spacing);
-    margin-top: 0;
+    margin-top: 1em;
+}
+
+table {
+    border-collapse: separate;
+    border-spacing: 0;
+}
+
+table tr th,
+table tr td {
+    border-right: 1px solid var(--table-border);
+    border-bottom: 1px solid var(--table-border);
+}
+table tr th:not(:last-of-type) {
+    border-right: none;
+}
+
+table tr th:first-child,
+table tr td:first-child {
+    border-left: 1px solid var(--table-border);
+}
+
+table tr th {
+    border-top: solid 1px var(--table-border);
+}
+
+/* top-left border-radius */
+table tr:first-child th:first-child {
+    border-top-left-radius: 6px;
+}
+
+/* top-right border-radius */
+table tr:first-child th:last-child {
+    border-top-right-radius: 6px;
+}
+
+/* bottom-left border-radius */
+table tr:last-child td:first-child {
+    border-bottom-left-radius: 6px;
+}
+
+/* bottom-right border-radius */
+table tr:last-child td:last-child {
+    border-bottom-right-radius: 6px;
 }

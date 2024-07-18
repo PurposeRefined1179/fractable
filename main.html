@@ -5,7 +5,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Fractable - TimeTable Generator for Fractal Academic System</title>
+
     <link rel="stylesheet" href="./styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -31,21 +35,19 @@
     </div>
     <section>
         <table id="output-table">
-            <thead>
-                <tr>
-                    <td>Day</td>
-                    <td>9.00<br>9.55</td>
-                    <td>10:00<br>10.55</td>
-                    <td>11.00<br>11.55</td>
-                    <td>12.00<br>12.55</td>
-                    <td>12.55<br>14.30</td>
-                    <td>14.30<br>15.55</td>
-                    <td>16.00<br>17.25</td>
-                    <!-- <td></td>
+            <tr>
+                <th>Day</th>
+                <th>9.00<br>9.55</th>
+                <th>10:00<br>10.55</th>
+                <th>11.00<br>11.55</th>
+                <th>12.00<br>12.55</th>
+                <th>12.55<br>14.30</th>
+                <th>14.30<br>15.55</th>
+                <th>16.00<br>17.25</th>
+                <!-- <td></td>
                     <td>18.00<br>19.25</td>
                     <td>19.30<br>21.00</td> -->
-                </tr>
-            </thead>
+            </tr>
             <tbody>
                 <tr>
                     <td class="day">Monday</td>
@@ -111,25 +113,33 @@
             </tbody>
         </table>
     </section>
-    <h2>To-do</h2>
-    <ul>
-        <li>Responsive</li>
-        <li>Colors for remaining slots (P, Q, R and S)</li>
-        <li>Styling
-            <ul>
-                <li>
-                    Inputs
-                </li>
-                <li>
-                    Dark mode toggle
-                </li>
-            </ul>
-        </li>
-        <li>js Bookmarklet (?) (will make this app work without having to enter any input - extracts html from erp.iith.ac.in)</li>
-        <li>Feedback</li>
-    </ul>
+    <div id="add-entry">
+        CS1010
+    </div>
+    <section>
+        <h2>Classes</h2>
 
-    <p><a href="https://github.com/purposerefined1179/fractable">Source Code</a></p>
+    </section>
+
+    <section>
+        <h2>To-do</h2>
+        <ul>
+            <li>Colors for remaining slots (P, Q, R and S)</li>
+            <li>Styling
+                <ul>
+                    <li>
+                        Inputs
+                    </li>
+                    <li>
+                        Dark mode toggle
+                    </li>
+                </ul>
+            </li>
+            <li>js Bookmarklet (?) (will make this app work without having to enter any input - extracts html from
+                erp.iith.ac.in)</li>
+            <li>Collect Feedback</li>
+        </ul>
+    </section>
 </body>
 <script src="./script.js"></script>
 
