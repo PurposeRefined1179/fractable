@@ -93,7 +93,7 @@ body {
     gap: 10px;
     background-color: var(--add-entry-background-color);
 }
-.inputs {
+.inputs, .inputs:active {
     outline: none;
     border: 1px solid var(--input-subject-code-border); 
     border-radius: 3.235px;
@@ -111,10 +111,22 @@ body {
     color: var(--input-subject-code-placeholder-color);
 }
 
-.submit-button {
+.submit-button, .submit-button:active, .submit-button:focus, .submit-button:focus-visible {
     background-color: #3baba2;
     border:1px solid #038b7f;
     color: white;
+    appearance: none;
+    border-radius: 3.235px;
+    line-height: 1.9;
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+    font-size: 1em;
+}
+
+.submit-button:focus {
+    outline: none;
+    box-shadow: 0 0 0 1.21px #038b7f; /* box shadow on focus */
+    transition: box-shadow 0.2s ease-in-out;
 }
 
 :root {
@@ -123,15 +135,15 @@ body {
 }
 
 .dark {
-    --subject-code-bg: var(--black);
-    --subject-code-bg-focus: var(--white);
+    --subject-code-bg: var(--base-950);
+    --subject-code-bg-focus: #151414;
 }
 #subject-code {
     background-color: var(--subject-code-bg);
 }
 #subject-code:focus, .inputs:focus {
     background-color: var(--subject-code-bg-focus);
-    box-shadow: 0 0 0 1.21px var(--input-subject-code-border); /* box shadow on focus */
+    box-shadow: 0 0 0 1.21px var(--input-subject-code-border); 
     transition: box-shadow 0.2s ease-in-out;
 }
 

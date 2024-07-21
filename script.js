@@ -68,25 +68,30 @@ function addSlot(subjectCodeElement, subjectSlotElement) {
     const subjectCode = subjectCodeElement.value;
     const subjectSlot = subjectSlotElement.value.split(" ")[1].toLowerCase();
     const slotToAdd = slotData.find(subject => subject.slot === subjectSlot)
-
+    
     if (slotToAdd.subjectCode !== "") {
         if (!askConfirmation("A subject at this slot already exists. Replace?")) {
             return;
         }
     }
+    slotToAdd.subjectCode = subjectCode;
 
     if (subjectCode === "") {
         if (!askConfirmation("Subject code empty. Continue?")) {
             return;
         }
     }
-    console.log(subjectCode, subjectSlot)
 
     highlightSubject(subjectCode, subjectSlot);
 }
 
 addSubject.addEventListener("click", () => addSlot(subjectCodeDOM, slotSelectorDOM))
-
+subjectCodeDOM.addEventListener("keydown", (event) => {
+    if (event.key === "Enter" && document.activeElement === subjectCodeDOM) {
+        event.preventDefault(); // Prevent default Enter key action (e.g., form submission)
+        addSlot(subjectCodeDOM, slotSelectorDOM); // Call addSlot function
+    }
+})
 // Other functionalities
 
 // Auto focus to Subject Code input on loading
