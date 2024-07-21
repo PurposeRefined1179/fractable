@@ -13,6 +13,12 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
     <link rel="icon" href="./assets/fractable-icon.svg">
+    <!-- Printing PDF -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+    <script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.3.2/html2canvas.min.js"></script>
 </head>
 
 <body>
@@ -24,7 +30,7 @@
         </svg></button>
     <h1>Timetable Generator</h1>
 
-    <div id="add-entry">
+    <div id="add-entry" class="center">
         <input type="text" placeholder="Type subject code here" id="subject-code" class="inputs">
         <select id="slot-selector" class="inputs">
             <option id="slot_a">Slot A</option>
@@ -39,10 +45,10 @@
             <option id="slot_r">Slot R</option>
             <option id="slot_0">Slot s0</option>
         </select>
-        <button type="button" id="add-subject" class="inputs">Add Subject</button>
+        <button type="button" id="add-subject" class="inputs submit-button">Add Subject</button>
     </div>
     <section>
-        <table id="output-table">
+        <table id="output-table" class="center">
             <tr>
                 <th>Day</th>
                 <th>9.00<br>9.55</th>
@@ -126,7 +132,10 @@
                 </tr>
             </tbody>
         </table>
+        <!-- <button id="save-pdf" class="inputs submit-button">Download as PDF </button> -->
     </section>
+    <div class="center" style="margin-top: 2em"><button id="print-table"
+            class="inputs submit-button center">Print</button></div>
     <!-- <section class="classes">
         <h2 width="100%">Classes</h2>
         <div class="class">
@@ -146,26 +155,45 @@
 
     <section class="todo-section">
         <h2>To-do</h2>
+        You can contribute to the code through Pull Requests and Bug Reports on the <a
+            href="https://github.com/PurposeRefined1179/fractable" target="_blank">GitHub repository</a>.
         <ul class="todo-list">
-            <li><input type="checkbox" checked><span class="completed">Colors for remaining slots (P, Q, R and S)</span></li>
-                </li>
-                <li><input type="checkbox">Mobile: remove table and add a schedule (sorted by day)
-                </li>
-            <li><input type="checkbox">Schedule: sort by subject
-            <li><b>Styling</b>
+            <li><b>Core Functionalities</b>
                 <ul class="todo-list">
-                    <li><input type="checkbox" checked>Inputs</li>
-                    <li><input type="checkbox" checked>Dark mode toggle</li>
-                    <li><input type="checkbox" checked>Tab icon</li>
-                </ul>
-            </li>
-            <li><input type="checkbox">js Bookmarklet (will make this app work without having to enter any input -
-                extracts html from <a href="https://erp.iith.ac.in">IITH ERP website</a>)</li>
-                <li><input type="checkbox">Reminder Shortcut (iOS + iPadOS + macOS)</li>
-            <li><input type="checkbox">(Speculative) Google Calendar Integration</li>
+                    <li><input type="checkbox" checked><span class="completed">Colors for remaining slots (P, Q, R and
+                            S)</span>
+                    </li>
+                    <li><input type="checkbox"><span class="completed">Accessibility for screen readers</span>
+                    </li>
+        </li>
+        <li><input type="checkbox">Mobile: remove table and add a schedule (sorted by day)
+        </li>
+        <li><input type="checkbox">Schedule: sort by subject</li>
+        </li>
         </ul>
+        <li ><li><b>Styling</b>
+            <ul class="todo-list">
+                <li><input type="checkbox" checked>Inputs</li>
+                <li><input type="checkbox" checked>Dark mode toggle</li>
+                <li><input type="checkbox" checked>Favicon</li>
+                <li><input type="checkbox">Responsive Design</li>
+            </ul>
+        </li>
+        <li><b>Other Functionalities</b>
+            <ul class="todo-list">
+                <li><input type="checkbox">js Bookmarklet (will make this app work without having to enter any input -
+                    extracts html from <a href="https://erp.iith.ac.in">IITH ERP website</a>)</li>
+                <li><input type="checkbox" checked>"Print" button</li>
+                <li><input type="checkbox">"Download as PDF" button</li>
+                <li><input type="checkbox">Reminder Shortcut (iOS + iPadOS + macOS)</li>
+                <li><input type="checkbox">(Speculative) Google Calendar Integration</li>
+            </ul>
+        <li><input type="checkbox">(speculative++) Clean js and css code</li>
+        </ul>
+        </li>
     </section>
 </body>
 <script src="./script.js"></script>
+<script src="./print.js"></script>
 
 </html>

@@ -5,12 +5,20 @@
 
 :root {
     font-family: "Segoe UI Variable Display", "Inter";
-
+    
     /* Flexoki Color Scheme */
     --paper: #FFFCF080;
     --text: var(--black);
 }
+p {
+    font-family: "Segoe UI Variable Display", "Inter";
 
+}
+.center {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
 
 
 .dark {
@@ -84,7 +92,6 @@ body {
     padding: 10px;
     gap: 10px;
     background-color: var(--add-entry-background-color);
-    margin: auto;
 }
 .inputs {
     outline: none;
@@ -103,7 +110,8 @@ body {
 .inputs::placeholder {
     color: var(--input-subject-code-placeholder-color);
 }
-#add-subject {
+
+.submit-button {
     background-color: #3baba2;
     border:1px solid #038b7f;
     color: white;
@@ -148,7 +156,6 @@ table * {
 }
 
 table {
-    margin: auto;
     margin-top: 4em;
     border-collapse: separate;
 }
@@ -358,7 +365,7 @@ h1 {
     letter-spacing: var(--h1-letter-spacing);
     margin-top: 0;
     margin-bottom: 1.618em;
-    /* margin: auto; */
+
 }
 
 h2 {
