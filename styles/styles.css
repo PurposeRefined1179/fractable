@@ -24,7 +24,7 @@ body {
     padding-top: calc(var(--body-padding)/var(--h1-line-height));
     margin: 0;
     background-color: var(--paper);
-    transition: all 0.3s;
+    /* transition: all 0.3s; */
     color: var(--text)
 }
 
@@ -60,9 +60,76 @@ body {
     color: var(--theme-toggler-svg-color);
 }
 
+/* Input */
+:root {
+    --add-subject-border: var(--base-200);
+    --input-subject-code-border: var(--base-300) ;
+    --input-subject-code-text-color: var(--base-900);
+    --input-subject-code-placeholder-color: var(--base-800);
+    --add-entry-background-color: var(--base-50);
+}
+.dark {
+    --add-subject-border: var(--base-800);
+    --input-subject-code-border: var(--base-700) ;
+    --input-subject-code-text-color: var(--base-100);
+    --input-subject-code-placeholder-color: var(--base-150);
+    --add-entry-background-color: var(--base-900);
+}
+
+#add-entry {
+    border: 1px solid var(--add-subject-border);
+    border-radius: 4.235px;
+    display: flex;
+    width: fit-content;
+    padding: 10px;
+    gap: 10px;
+    background-color: var(--add-entry-background-color);
+    margin: auto;
+}
+.inputs {
+    outline: none;
+    border: 1px solid var(--input-subject-code-border); 
+    border-radius: 3.235px;
+    line-height: 1.9;
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+    color: var(--input-subject-code-text-color);
+    background-color: var(--paper);
+    font-size: 1em;
+    /* appearance: none; */
+    padding-top: calc(0.2/1.9)em;
+    padding-bottom: 0.2em;
+}
+.inputs::placeholder {
+    color: var(--input-subject-code-placeholder-color);
+}
+#add-subject {
+    background-color: #3baba2;
+    border:1px solid #038b7f;
+    color: white;
+}
+
+:root {
+    --subject-code-bg: var(--white);
+    --subject-code-bg-focus: hsl(54, 100%, 98%);
+}
+
+.dark {
+    --subject-code-bg: var(--black);
+    --subject-code-bg-focus: var(--white);
+}
+#subject-code {
+    background-color: var(--subject-code-bg);
+}
+#subject-code:focus, .inputs:focus {
+    background-color: var(--subject-code-bg-focus);
+    box-shadow: 0 0 0 1.21px var(--input-subject-code-border); /* box shadow on focus */
+    transition: box-shadow 0.2s ease-in-out;
+}
+
 /* Table Cells: Colors */
 :root {
-    --table-inactive-cells: #878580;
+    --table-inactive-cells: var(--base-800);
     --table-border: var(--base-100);
     --table-cell-border: var(--base-100);
 }
@@ -138,7 +205,7 @@ td.day {
 /* Rowspan: Colors */
 :root {
     --table-rowspan-background-color: var(--base-50);
-    --table-rowspan-color: var(--base-800);
+    --table-rowspan-color: var(--base-700);
 }
 
 .dark {
@@ -160,6 +227,7 @@ td[rowspan], th[rowspan] {
 
 td[rowspan] svg {
     background-color: transparent;
+    
 }
 
 .vertical-text {
@@ -170,17 +238,8 @@ td[rowspan] svg {
     letter-spacing: 0.6em;
 }
 
-:root {
-    --add-subject-border: var(--base-500);
-}
 
-#add-entry {
-    border: 1px solid var(--add-subject-border);
-    display: flex;
-    width: fit-content;
-    padding: 10px;
-    gap: 10px;
-}
+
 
 .classes {
     display: flex;
@@ -298,7 +357,8 @@ h1 {
     font-weight: var(--h1-font-weight);
     letter-spacing: var(--h1-letter-spacing);
     margin-top: 0;
-
+    margin-bottom: 1.618em;
+    /* margin: auto; */
 }
 
 h2 {
@@ -351,4 +411,15 @@ table tr:last-child td:first-child {
 /* bottom-right border-radius */
 table tr:last-child td:last-child {
     border-bottom-right-radius: 6px;
+}
+
+:root {
+    --link-color: black;
+}
+.dark {
+    --link-color: white;
+}
+
+a {
+    color: var(--link-color);
 }

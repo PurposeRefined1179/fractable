@@ -4,31 +4,36 @@ const subjectCode = document.getElementById("subject-code")
 const outputTable = document.getElementById("output-table")
 const filledSlots = []
 
+window.onload = function() {
+    document.getElementById('subject-code').focus();
+};
+
 function askConfirmation(string) {
-    if (confirm(string)) {
-            
-    }
-    else {
-        return;
-    }
+    return confirm(string);
 }
 
 function highlightSubject() {
     const slotLetter = slotSelector.value.split(" ")[1].toLowerCase();
     
-    if (filledSlots.find(letter => letter === slotLetter)) 
-        askConfirmation("A subject at this slot already exists. Replace?")
+    if (filledSlots.find(letter => letter === slotLetter)) {
+        if (!askConfirmation("A subject at this slot already exists. Replace?")) {
+            return;
+        }
+    }
     
-    if(subjectCode.value === "")
-        askConfirmation("Subject code empty. Continue?")
+    if (subjectCode.value === "") {
+        if (!askConfirmation("Subject code empty. Continue?")) {
+            return;
+        }
+    }
     
     const code = subjectCode.value;
-    const cellsToEdit = document.querySelectorAll(`#${slotLetter}`)
+    const cellsToEdit = document.querySelectorAll(`#${slotLetter}`);
     for (let cell of cellsToEdit) {
         cell.innerText = code;
-        cell.classList.add(`${slotLetter}`)
+        cell.classList.add(`${slotLetter}`);
     }
-    filledSlots.push(slotLetter)
+    filledSlots.push(slotLetter);
 }
 
 addSubject.addEventListener("click", highlightSubject)
