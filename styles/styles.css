@@ -420,6 +420,13 @@ table tr:last-child td:last-child {
     border-bottom-right-radius: 6px;
 }
 
+
+.print-button {
+    display: flex;
+    gap: 0.3em;
+    align-items: center;
+}
+
 :root {
     --link-color: black;
 }
