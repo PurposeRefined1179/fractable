@@ -371,6 +371,7 @@ h2 {
 }
 
 h1 {
+    font-family: "Inter" ;
     font-size: var(--h1-font-size);
     line-height: var(--h1-line-height);
     font-weight: var(--h1-font-weight);
