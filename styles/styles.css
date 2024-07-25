@@ -1,17 +1,17 @@
 * {
     box-sizing: border-box;
-    font-family: "Segoe UI Variable Display", "Inter";
+    font-family: "Segoe UI Variable Display", "Roboto", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont;
 }
 
 :root {
-    font-family: "Segoe UI Variable Display", "Inter";
+    font-family: "Segoe UI Variable Display", "Roboto", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont;
     
     /* Flexoki Color Scheme */
     --paper: #FFFCF080;
     --text: var(--black);
 }
 p {
-    font-family: "Segoe UI Variable Display", "Inter";
+    font-family: "Segoe UI Variable Display", "Roboto", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont;
 
 }
 .center {
@@ -32,7 +32,7 @@ body {
     padding-top: calc(var(--body-padding)/var(--h1-line-height));
     margin: 0;
     background-color: var(--paper);
-    /* transition: all 0.3s; */
+    transition: all 0.3s;
     color: var(--text)
 }
 
@@ -371,7 +371,6 @@ h2 {
 }
 
 h1 {
-    font-family: "Inter" ;
     font-size: var(--h1-font-size);
     line-height: var(--h1-line-height);
     font-weight: var(--h1-font-weight);
@@ -451,23 +450,7 @@ a {
     color: var(--link-color);
 }
 
-
-code {
-    background-color: var(--base-150);
-    color: var(--base-950);
-    border-radius: 0.3rem;
-    padding: 1em;
-    /* white-space: nowrap; */
-    font-family: monospace;
+#bookmarklet {
     display: block;
-    margin-top: 1em;
-    white-space: nowrap;
+    padding-top: 1em;
 }
-
-.jetbrains-mono-400 {
-    font-family: "JetBrains Mono", monospace;
-    font-optical-sizing: auto;
-    font-weight: 400;
-    font-style: normal;
-    overflow-x: scroll;
-  }

@@ -9,19 +9,15 @@
     <link rel="stylesheet" href="./styles/styles.css">
     <link rel="stylesheet" href="./styles/colors.css">
     <link rel="stylesheet" href="./styles/to-do.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+    </style>
 
     <!-- Favicon -->
     <link rel="icon" href="./assets/fractable-icon.svg">
     <link rel="icon" href="./assets/fractable-icon.png">
     <link rel="apple-touch-icon" href="./assets/fractable-icon.png">
     <link rel="icon" href="/fractable-icon.ico" />
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap');
-    </style>
-
 </head>
 
 <body>
@@ -31,7 +27,7 @@
             class="lucide lucide-moon">
             <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z" />
         </svg></button>
-    <h1>Timetable Generator</h1>
+    <h1>Fractable: Timetable Generator</h1>
 
     <div id="add-entry" class="center">
         <select id="slot-selector" class="inputs">
@@ -181,16 +177,17 @@
         </div>
 
     </section> -->
-    <!-- <section>
+    <section>
         <h2>Create table in a few clicks: Bookmarklet</h2>
         You can create a bookmarklet to create the timetable in a few clicks <br>
-        To create the bookmarklet, simply drag the "Bookmarklet" link below into your bookmarks. 
-        <a id="bookmarklet">Bookmarklet!</a>
-
+        To create the bookmarklet, simply drag the "Fractabler" link below into your bookmarks.
+        <br>
+        <a id="bookmarklet" href="">Fractabler</a>
+        <br>
         Then click the bookmark when you are on the course registration form page in ERP.
 
 
-    </section> -->
+    </section>
     <section class="todo-section">
         <h2>To-do</h2>
         You can contribute to the code through Pull Requests and Bug Reports on the <a
@@ -198,38 +195,38 @@
         <ul class="todo-list">
             <li><b>Core Functionalities</b>
                 <ul class="todo-list">
-                    <li><input type="checkbox" checked disabled><span class="completed">Colors for remaining slots (P,
+                    <li><input type="checkbox" checked ><span class="completed">Colors for remaining slots (P,
                             Q, R and
                             S)</span>
                     </li>
-                    <li><input type="checkbox" disabled><span class="completed">Accessibility for screen readers</span>
+                    <li><input type="checkbox" ><span class="completed">Accessibility for screen readers</span>
                     </li>
             </li>
-            <li><input type="checkbox" disabled>Mobile: remove table and add a schedule (sorted by day)
+            <li><input type="checkbox" >Mobile: remove table and add a schedule (sorted by day)
             </li>
-            <li><input type="checkbox" disabled>Schedule: sort by subject</li>
+            <li><input type="checkbox" >Schedule: sort by subject</li>
             </li>
         </ul>
         <li>
         <li><b>Styling</b>
             <ul class="todo-list">
-                <li><input type="checkbox" disabled checked>Inputs</li>
-                <li><input type="checkbox" disabled checked>Dark mode toggle</li>
-                <li><input type="checkbox" disabled checked>Favicon</li>
-                <li><input type="checkbox" disabled>Responsive Design</li>
+                <li><input type="checkbox"  checked>Inputs</li>
+                <li><input type="checkbox"  checked>Dark mode toggle</li>
+                <li><input type="checkbox"  checked>Favicon</li>
+                <li><input type="checkbox" >Responsive Design</li>
             </ul>
         </li>
         <li><b>Other Functionalities</b>
             <ul class="todo-list">
-                <li><input type="checkbox" checked disabled>js Bookmarklet (will make this app work without having to
+                <li><input type="checkbox" checked >js Bookmarklet (will make this app work without having to
                     enter any input -
                     extracts html from <a href="https://erp.iith.ac.in">IITH ERP website</a>)</li>
-                <li><input type="checkbox" disabled checked>"Print" button</li>
-                <li><input type="checkbox" disabled>"Download as PDF" button</li>
-                <li><input type="checkbox" disabled>Reminder Shortcut (iOS + iPadOS + macOS)</li>
-                <li><input type="checkbox" disabled>(Speculative) Google Calendar Integration</li>
+                <li><input type="checkbox"  checked>"Print" button</li>
+                <li><input type="checkbox" >"Download as PDF" button</li>
+                <li><input type="checkbox" >Reminder Shortcut (iOS + iPadOS + macOS)</li>
+                <li><input type="checkbox" >(Speculative) Google Calendar Integration</li>
             </ul>
-        <li><input type="checkbox" disabled>(speculative++) Clean js and css code</li>
+        <li><input type="checkbox" >(speculative++) Clean js and css code</li>
         </ul>
         </li>
     </section>

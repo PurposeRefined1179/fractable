@@ -1,8 +1,9 @@
 .todo-section {
-    font-family: Arial, sans-serif;
+    margin-top: 5em;
+    font-size: 0.9em
 }
 .todo-section h2 {
-    font-size: 24px;
+    font-size: 1.5em;
     margin-bottom: 10px;
 }
 .todo-list {

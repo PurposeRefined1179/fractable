@@ -1,5 +1,5 @@
 
-if (this.document.location.href === "https://erp.iith.ac.in/Default/Pages/Portal/PortalInfrastructure.html") {
+if (this.document.location.href === "https://erp.iith.ac.in/Default/Pages/Portal/PortalInfrastructure.html" && (document.readyState === "complete")) {
     var targetDiv = window.frames[0].document.getElementById("E29CE1EC-E323-44CB-BDE7-232ED47FE8CA");
     var ancestorDiv = targetDiv.parentElement.parentElement.parentElement;
     var secondChildDiv = ancestorDiv.children[1];
@@ -18,5 +18,7 @@ if (this.document.location.href === "https://erp.iith.ac.in/Default/Pages/Portal
             }
         }
     });
-    this.document.location.href = "127.0.0.1:5500/main.html" + outputQuery;
+    const fractable = "https://purposerefined1179.github.io/fractable/main.html"
+    window.open(fractable + outputQuery)
+
 }

@@ -230,8 +230,8 @@ const bookmarkletCode = `
 `;
 
 // Encode the JavaScript code
-const encodedCode = encodeURIComponent(bookmarkletCode).replace(/'/g, '%27').replace(/"/g, '%22');
+
 
 // Set the href attribute of the anchor element with the ID "bookmarklet"
 const bookmarklet = document.getElementById("bookmarklet");
-bookmarklet.href = `javascript:${encodedCode}`;
+bookmarklet.href = `javascript:(() => {if("https://erp.iith.ac.in/Default/Pages/Portal/PortalInfrastructure.html"===this.document.location.href&&"complete"===document.readyState){var targetDiv=window.frames[0].document.getElementById("E29CE1EC-E323-44CB-BDE7-232ED47FE8CA"),ancestorDiv=targetDiv.parentElement.parentElement.parentElement,secondChildDiv=ancestorDiv.children[1],elementsWithPlbId=Array.from(secondChildDiv.querySelectorAll('[id^="plb"]')),subjectCodeRegex=/[A-Z]{2}\\d{4}/,statusSelectedRegex=/Status\\s*SELECTED/,slotRegex=/Slot\\s*([A-Z])/,outputQuery="";elementsWithPlbId.forEach((function(e){if(statusSelectedRegex.test(e.innerText)){var t=e.innerText.match(subjectCodeRegex),n=e.innerText.match(slotRegex);t&&n&&(outputQuery+=\`?\${t[0]}&\${n[1]}\`)}}));const e="https://purposerefined1179.github.io/fractable/main.html";window.open(e+outputQuery)}})();`;
