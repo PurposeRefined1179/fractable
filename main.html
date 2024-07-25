@@ -12,13 +12,16 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+
+    <!-- Favicon -->
     <link rel="icon" href="./assets/fractable-icon.svg">
-    <!-- Printing PDF -->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
-        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
-    <script type="text/javascript"
-        src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.3.2/html2canvas.min.js"></script>
+    <link rel="icon" href="./assets/fractable-icon.png">
+    <link rel="apple-touch-icon" href="./assets/fractable-icon.png">
+    <link rel="icon" href="/fractable-icon.ico" />
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap');
+    </style>
+
 </head>
 
 <body>
@@ -42,10 +45,30 @@
             <option id="slot_p">Slot P</option>
             <option id="slot_q">Slot Q</option>
             <option id="slot_r">Slot R</option>
-            <option id="slot_0">Slot s0</option>
+            <option id="slot_s">Slot S</option>
         </select>
-        <input type="text" placeholder="Type subject code here" id="subject-code" class="inputs">
-        <button type="button" id="add-subject" class="submit-button">Add Subject</button>
+        <input type="text" placeholder="Type course code here" id="subject-code" class="inputs">
+        <button type="button" id="add-subject" class="submit-button">Add Course</button>
+    </div>
+    <div id="courses">
+        <!-- <div id="entry_a">
+            <div class="entry_a_name">
+                CS1023
+            </div>
+            <div class="slot_name">Slot A</div>
+            <div class="class_timings">
+                <span class="class_timing">
+                    <span class="class_timing_day">Monday </span> ·
+                    <span class="class_timing_time">09.00 - 09.55</span>
+                </span>
+            </div>
+            <div id="remove-slot-a"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                    class="lucide lucide-circle-minus">
+                    <circle cx="12" cy="12" r="10" />
+                    <path d="M8 12h8" />
+                </svg></div>
+        </div> -->
     </div>
     <section>
         <table id="output-table" class="center">
@@ -134,8 +157,14 @@
         </table>
         <!-- <button id="save-pdf" class="inputs submit-button">Download as PDF </button> -->
     </section>
-    <div class="center" style="margin-top: 2em"><button id="print-table"
-            class="submit-button center print-button"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-printer"><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><path d="M6 9V3a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v6"/><rect x="6" y="14" width="12" height="8" rx="1"/></svg><span>Print</span></button></div>
+    <div class="center" style="margin-top: 2em"><button id="print-table" class="submit-button center print-button"><svg
+                xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                class="lucide lucide-printer">
+                <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2" />
+                <path d="M6 9V3a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v6" />
+                <rect x="6" y="14" width="12" height="8" rx="1" />
+            </svg><span>Print</span></button></div>
     <!-- <section class="classes">
         <h2 width="100%">Classes</h2>
         <div class="class">
@@ -152,7 +181,16 @@
         </div>
 
     </section> -->
+    <!-- <section>
+        <h2>Create table in a few clicks: Bookmarklet</h2>
+        You can create a bookmarklet to create the timetable in a few clicks <br>
+        To create the bookmarklet, simply drag the "Bookmarklet" link below into your bookmarks. 
+        <a id="bookmarklet">Bookmarklet!</a>
 
+        Then click the bookmark when you are on the course registration form page in ERP.
+
+
+    </section> -->
     <section class="todo-section">
         <h2>To-do</h2>
         You can contribute to the code through Pull Requests and Bug Reports on the <a
@@ -160,35 +198,38 @@
         <ul class="todo-list">
             <li><b>Core Functionalities</b>
                 <ul class="todo-list">
-                    <li><input type="checkbox" checked><span class="completed">Colors for remaining slots (P, Q, R and
+                    <li><input type="checkbox" checked disabled><span class="completed">Colors for remaining slots (P,
+                            Q, R and
                             S)</span>
                     </li>
-                    <li><input type="checkbox"><span class="completed">Accessibility for screen readers</span>
+                    <li><input type="checkbox" disabled><span class="completed">Accessibility for screen readers</span>
                     </li>
-        </li>
-        <li><input type="checkbox">Mobile: remove table and add a schedule (sorted by day)
-        </li>
-        <li><input type="checkbox">Schedule: sort by subject</li>
-        </li>
+            </li>
+            <li><input type="checkbox" disabled>Mobile: remove table and add a schedule (sorted by day)
+            </li>
+            <li><input type="checkbox" disabled>Schedule: sort by subject</li>
+            </li>
         </ul>
-        <li ><li><b>Styling</b>
+        <li>
+        <li><b>Styling</b>
             <ul class="todo-list">
-                <li><input type="checkbox" checked>Inputs</li>
-                <li><input type="checkbox" checked>Dark mode toggle</li>
-                <li><input type="checkbox" checked>Favicon</li>
-                <li><input type="checkbox">Responsive Design</li>
+                <li><input type="checkbox" disabled checked>Inputs</li>
+                <li><input type="checkbox" disabled checked>Dark mode toggle</li>
+                <li><input type="checkbox" disabled checked>Favicon</li>
+                <li><input type="checkbox" disabled>Responsive Design</li>
             </ul>
         </li>
         <li><b>Other Functionalities</b>
             <ul class="todo-list">
-                <li><input type="checkbox">js Bookmarklet (will make this app work without having to enter any input -
+                <li><input type="checkbox" checked disabled>js Bookmarklet (will make this app work without having to
+                    enter any input -
                     extracts html from <a href="https://erp.iith.ac.in">IITH ERP website</a>)</li>
-                <li><input type="checkbox" checked>"Print" button</li>
-                <li><input type="checkbox">"Download as PDF" button</li>
-                <li><input type="checkbox">Reminder Shortcut (iOS + iPadOS + macOS)</li>
-                <li><input type="checkbox">(Speculative) Google Calendar Integration</li>
+                <li><input type="checkbox" disabled checked>"Print" button</li>
+                <li><input type="checkbox" disabled>"Download as PDF" button</li>
+                <li><input type="checkbox" disabled>Reminder Shortcut (iOS + iPadOS + macOS)</li>
+                <li><input type="checkbox" disabled>(Speculative) Google Calendar Integration</li>
             </ul>
-        <li><input type="checkbox">(speculative++) Clean js and css code</li>
+        <li><input type="checkbox" disabled>(speculative++) Clean js and css code</li>
         </ul>
         </li>
     </section>

@@ -115,7 +115,7 @@ body {
     background-color: #3baba2;
     border:1px solid #038b7f;
     color: white;
-    appearance: none;
+    /* appearance: none; */
     border-radius: 3.235px;
     line-height: 1.9;
     padding-left: 0.5em;
@@ -450,3 +450,24 @@ table tr:last-child td:last-child {
 a {
     color: var(--link-color);
 }
+
+
+code {
+    background-color: var(--base-150);
+    color: var(--base-950);
+    border-radius: 0.3rem;
+    padding: 1em;
+    /* white-space: nowrap; */
+    font-family: monospace;
+    display: block;
+    margin-top: 1em;
+    white-space: nowrap;
+}
+
+.jetbrains-mono-400 {
+    font-family: "JetBrains Mono", monospace;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    overflow-x: scroll;
+  }

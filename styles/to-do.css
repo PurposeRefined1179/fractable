@@ -24,3 +24,7 @@
 .todo-list .completed {
     text-decoration: none;
 }
+
+input[type='checkbox']:disabled {
+    accent-color: red;
+}
