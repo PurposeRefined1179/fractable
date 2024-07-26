@@ -32,7 +32,7 @@ body {
     padding-top: calc(var(--body-padding)/var(--h1-line-height));
     margin: 0;
     background-color: var(--paper);
-    transition: all 0.3s;
+    /* transition: all 0.3s; */
     color: var(--text)
 }
 
@@ -147,6 +147,12 @@ body {
     transition: box-shadow 0.2s ease-in-out;
 }
 
+.n_toggle {
+    width: fit-content;
+    margin: 1em auto;
+
+}
+
 /* Table Cells: Colors */
 :root {
     --table-inactive-cells: var(--base-800);
@@ -219,6 +225,8 @@ td.day {
     background-color: var(--table-days-background-color);
     /* border-right: var(--table-right-border); */
     /* border-bottom: var(--table-bottom-border); */
+    padding-left: 1.25em !important;
+    padding-right: 1.25em !important;
 }
 
 /* Rowspan: Colors */
@@ -233,7 +241,7 @@ td.day {
 
 }
 
-td[rowspan] {
+td[class="vertical-text"] {
     line-height: 2;
     color: var(--table-rowspan-color);
     background-color: var(--table-rowspan-background-color);
@@ -249,8 +257,9 @@ td[rowspan] svg {
     
 }
 
-.vertical-text {
 
+.vertical-text {
+    
     writing-mode: vertical-rl;
     text-orientation: upright;
     text-transform: uppercase;
@@ -288,26 +297,26 @@ h2 {
 .p,
 .q,
 .r,
-.s {
+.s, .fn1,.fn2,.fn3,.fn4,.fn5, .an1,.an2,.an3,.an4,.an5 {
     font-weight: 500;
 }
 
-.a {
+.a, .fn1 {
     background-color: var(--a);
     color: var(--on-highlighted-cell);
 }
 
-.b {
+.b, .fn3 {
     background-color: var(--b);
     color: var(--on-highlighted-cell);
 }
 
-.c {
+.c, .fn4 {
     background-color: var(--c);
     color: var(--on-highlighted-cell);
 }
 
-.d {
+.d, .fn2 {
     background-color: var(--d);
     color: var(--on-highlighted-cell);
 }
@@ -317,7 +326,7 @@ h2 {
     color: var(--on-highlighted-cell);
 }
 
-.f {
+.f, .an3 {
     background-color: var(--f);
     color: var(--on-highlighted-cell);
 }
@@ -327,30 +336,31 @@ h2 {
     color: var(--on-highlighted-cell);
 }
 
-.p {
+.p, .an1 {
     background-color: var(--p);
     color: var(--on-highlighted-cell);
 }
 
-.q {
+.q, .an4 {
     background-color: var(--q);
     color: var(--on-highlighted-cell);
 }
 
-.r {
+.r , .an2{
     background-color: var(--r);
     color: var(--on-highlighted-cell);
 }
 
-.s {
+.s, .an5 {
     background-color: var(--s);
     color: var(--on-highlighted-cell);
 }
 
-:root {
-    /* Typography */
-    --body-padding: 4.235em;
 
+/* Typography */
+:root {
+    --body-padding: 4.235em;
+    
     --h1-line-height: 1.129;
     --h1-font-weight: 700;
     --h1-font-size: 2.235em;
@@ -360,12 +370,12 @@ h2 {
     --h2-font-weight: 500;
     --h2-font-size: 1.618em;
     --h2-letter-spacing: -0.022em;
-
+    
     --input-line-height: 1.618;
     --input-font-weight: 400;
     --input-font-size: 1.129em;
     --input-letter-spacing: -0.017em;
-
+    
     --input-subject-code-font-size: 1.129em;
     --input-subject-name-font-size: 0.78em;
 }
@@ -377,7 +387,7 @@ h1 {
     letter-spacing: var(--h1-letter-spacing);
     margin-top: 0;
     margin-bottom: 1.618em;
-
+    
 }
 
 h2 {
@@ -453,4 +463,12 @@ a {
 #bookmarklet {
     display: block;
     padding-top: 1em;
+}
+
+tr > td[colspan="3"] {
+    border-left: none !important;
+}
+/* breakpoint 1: 1024px */
+.hidden {
+    display: none;
 }

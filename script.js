@@ -91,19 +91,99 @@ const slotData = [{
     { day: "Friday", time: "14.30 - 15.55" }
     ]
 },
+{
+    slot: "fn1",
+    subjectCode: "",
+    classTimings: [{ day: "Monday", time: "09.00 - 11.25" }]
+},
+{
+    slot: "fn2",
+    subjectCode: "",
+    classTimings: [{ day: "Tuesday", time: "09.00 - 11.25" }]
+},
+{
+    slot: "fn3",
+    subjectCode: "",
+    classTimings: [{ day: "Wednesday", time: "09.00 - 11.25" }]
+},
+{
+    slot: "fn4",
+    subjectCode: "",
+    classTimings: [{ day: "Thursday", time: "09.00 - 11.25" }]
+},
+{
+    slot: "fn5",
+    subjectCode: "",
+    classTimings: [{ day: "Friday", time: "09.00 - 11.25" }]
+},
+{
+    slot: "an1",
+    subjectCode: "",
+    classTimings: [{ day: "Monday", time: "14.30 - 17.25" }]
+},
+{
+    slot: "an2",
+    subjectCode: "",
+    classTimings: [{ day: "Tuesday", time: "14.30 - 17.25" }]
+},
+{
+    slot: "an3",
+    subjectCode: "",
+    classTimings: [{ day: "Wednesday", time: "14.30 - 17.25" }]
+},
+{
+    slot: "an4",
+    subjectCode: "",
+    classTimings: [{ day: "Thursday", time: "14.30 - 17.25" }]
+},
+{
+    slot: "an5",
+    subjectCode: "",
+    classTimings: [{ day: "Friday", time: "14.30 - 17.25" }]
+},
 
 ]
+
+const nToggle = document.getElementById("n-toggle")
+
+nToggle.addEventListener("change", () => {
+    const nToggleElements = document.querySelectorAll(".toggle_n");
+
+    nToggleElements.forEach(element => {
+        if (element.getAttribute("rowspan") === "2") {
+            element.setAttribute("rowspan", "1");
+        } else {
+            element.setAttribute("rowspan", "2");
+        }
+    });
+
+    const n_elements = document.querySelectorAll(`td[id*="n"]`);
+    n_elements.forEach(element => {
+        element.classList.toggle("hidden");
+    });
+})
+
+function uncheck() {
+    nToggle.checked = false
+    const nToggleElements = document.querySelectorAll(".toggle_n");
+
+    nToggleElements.forEach(element => element.setAttribute("rowspan", "2"));
+
+    const n_elements = document.querySelectorAll(`td[id*="n"]`);
+    n_elements.forEach(element => {
+        element.classList.remove("hidden");
+    });
+}
 
 highlightSubject = (subjectCode, subjectSlot) => {
     const cellsToEdit = document.querySelectorAll(`#${subjectSlot}`);
     for (let cell of cellsToEdit) {
-        console.log("hello") //not output
         cell.innerText = subjectCode;
         cell.classList.add(`${subjectSlot}`);
     }
 }
 const queryString = window.location.search;
-console.log(queryString) //?CS2233&A?MA2550&S
+console.log(queryString)
 if (queryString) {
     const inputs = queryString.split("?")
     inputs.shift()
@@ -120,6 +200,12 @@ function addSlot(subjectCodeElement, subjectSlotElement) {
     const subjectCode = subjectCodeElement.value;
     const subjectSlot = subjectSlotElement.value.split(" ")[1].toLowerCase();
     const slotToAdd = slotData.find(subject => subject.slot === subjectSlot)
+
+    const regex = /n\d/
+    if (regex.test(subjectSlot)) {
+        console.log("hiii")
+        uncheck()
+    }
 
     if (slotToAdd.subjectCode !== "") {
         if (!askConfirmation("A course at this slot already exists. Replace?")) {

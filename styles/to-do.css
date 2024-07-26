@@ -1,3 +1,20 @@
+table.changelog *, table.changelog td {
+    border: none !important;
+    padding: 0.5em;
+    padding-left: 0.25em;
+    margin: 0;
+    text-align: left;
+    padding-right: 2em;
+    background-color: transparent !important;
+}
+table.changelog {
+    margin-top: 0
+}
+table.changelog tr td:nth-of-type(2) {
+    color: var(--text);
+    
+}
+
 .todo-section {
     margin-top: 5em;
     font-size: 0.9em
@@ -21,6 +38,7 @@
 }
 .todo-list input[type="checkbox"] {
     margin-right: 10px;
+    border-radius: 50%;
 }
 .todo-list .completed {
     text-decoration: none;

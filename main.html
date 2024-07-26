@@ -42,9 +42,22 @@
             <option id="slot_q">Slot Q</option>
             <option id="slot_r">Slot R</option>
             <option id="slot_s">Slot S</option>
+            <option id="slot_fn1">Slot FN1</option>
+            <option id="slot_an1">Slot AN1</option>
+            <option id="slot_fn2">Slot FN2</option>
+            <option id="slot_an2">Slot AN2</option>
+            <option id="slot_fn3">Slot FN3</option>
+            <option id="slot_an3">Slot AN3</option>
+            <option id="slot_fn4">Slot FN4</option>
+            <option id="slot_an4">Slot AN4</option>
+            <option id="slot_fn5">Slot FN5</option>
+            <option id="slot_an5">Slot AN5</option>
         </select>
         <input type="text" placeholder="Type course code here" id="subject-code" class="inputs">
         <button type="button" id="add-subject" class="submit-button">Add Course</button>
+    </div>
+    <div class="n_toggle">
+        <input type="checkbox" id="n-toggle" checked><label for="n-toggle">Hide FN and AN slots</label>
     </div>
     <div id="courses">
         <!-- <div id="entry_a">
@@ -83,13 +96,13 @@
             </tr>
             <tbody>
                 <tr>
-                    <td class="day">Monday</td>
+                    <td class="day toggle_n" rowspan="1">Monday</td>
                     <td id="a">A</td>
                     <td id="b">B</td>
                     <td id="c">C</td>
-                    <td id="d">D</td>
-                    <td rowspan="5" class="vertical-text"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    <td id="d" class="toggle_n" rowspan="1">D</td>
+                    <td rowspan="10" class="vertical-text"><svg xmlns="http://www.w3.org/2000/svg" width="24"
+                            height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                             stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-utensils">
                             <path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2" />
                             <path d="M7 2v20" />
@@ -97,57 +110,62 @@
                         </svg></td>
                     <td id="p">P</td>
                     <td id="q">Q</td>
-                    <!-- <td rowspan="5" class="vertical-text">Snack</td>
-                    <td id="w">W</td>
-                    <td id="x">X</td> -->
                 </tr>
                 <tr>
-                    <td class="day">Tuesday</td>
+                    <td id="fn1" class="hidden" colspan="3">FN1</td>
+                    <td id="an1" class="hidden" colspan="2">AN1</td>
+                </tr>
+                <tr>
+                    <td class="day toggle_n" rowspan="1">Tuesday</td>
                     <td id="d">D</td>
                     <td id="e">E</td>
                     <td id="f">F</td>
-                    <td id="g">G</td>
+                    <td id="g" class="toggle_n" rowspan="1">G</td>
                     <td id="r">R</td>
                     <td id="s">S</td>
-
-                    <!-- <td id="y">Y</td>
-                    <td id="z">Z</td> -->
                 </tr>
                 <tr>
-                    <td class="day">Wednesday</td>
+                    <td id="fn2" class="hidden" colspan="3">FN2</td>
+                    <td id="an2" class="hidden" colspan="2">AN2</td>
+                </tr>
+                <tr>
+                    <td class="day toggle_n" rowspan="1">Wednesday</td>
                     <td id="b">B</td>
                     <td id="c">C</td>
                     <td id="a">A</td>
-                    <td id="g">G</td>
+                    <td id="g" class="toggle_n" rowspan="1">G</td>
                     <td id="f">F</td>
                     <td id="s0">s0</td>
-
-                    <!-- <td id=""></td>
-                    <td id=""></td> -->
                 </tr>
                 <tr>
-                    <td class="day">Thursday</td>
+                    <td id="fn3" class="hidden" colspan="3">FN3</td>
+                    <td id="an3" class="hidden" colspan="2">AN3</td>
+                </tr>
+                <tr>
+                    <td class="day toggle_n" rowspan="1">Thursday</td>
                     <td id="c">C</td>
                     <td id="a">A</td>
                     <td id="b">B</td>
-                    <td id="e">E</td>
+                    <td id="e" class="toggle_n" rowspan="1">E</td>
                     <td id="q">Q</td>
                     <td id="p">P</td>
-
-                    <!-- <td id="w">W</td>
-                    <td id="x">X</td> -->
                 </tr>
                 <tr>
-                    <td class="day">Friday</td>
+                    <td id="fn4" class="hidden" colspan="3">FN4</td>
+                    <td id="an4" class="hidden" colspan="2">AN4</td>
+                </tr>
+                <tr>
+                    <td class="day toggle_n" rowspan="1">Friday</td>
                     <td id="e">E</td>
                     <td id="f">F</td>
                     <td id="d">D</td>
-                    <td id="g">G</td>
+                    <td id="g" class="toggle_n" rowspan="1">G</td>
                     <td id="s">S</td>
                     <td id="r">R</td>
-
-                    <!-- <td id="y">Y</td>
-                    <td id="z">Z</td> -->
+                </tr>
+                <tr>
+                    <td id="fn5" class="hidden" colspan="3">FN5</td>
+                    <td id="an5" class="hidden" colspan="2">AN5</td>
                 </tr>
             </tbody>
         </table>
@@ -161,6 +179,7 @@
                 <path d="M6 9V3a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v6" />
                 <rect x="6" y="14" width="12" height="8" rx="1" />
             </svg><span>Print</span></button></div>
+
     <!-- <section class="classes">
         <h2 width="100%">Classes</h2>
         <div class="class">
@@ -189,44 +208,60 @@
 
     </section>
     <section class="todo-section">
+        <h2>Changelog</h2>
+        <table class="changelog">
+            <tr>
+                <td>27 January 2024</td>
+                <td>Added FN and AN slots</td>
+            </tr>
+            <tr>
+                <td>27 January 2024</td>
+                <td>Added changelog 🙄</td>
+            </tr>
+        </table>
         <h2>To-do</h2>
         You can contribute to the code through Pull Requests and Bug Reports on the <a
             href="https://github.com/PurposeRefined1179/fractable" target="_blank">GitHub repository</a>.
         <ul class="todo-list">
             <li><b>Core Functionalities</b>
                 <ul class="todo-list">
-                    <li><input type="checkbox" checked ><span class="completed">Colors for remaining slots (P,
+                    <li><input type="checkbox" checked><span class="completed">Colors for remaining slots (P,
                             Q, R and
                             S)</span>
                     </li>
-                    <li><input type="checkbox" ><span class="completed">Accessibility for screen readers</span>
+                    <li><input type="checkbox"><span class="completed">Accessibility for screen readers</span>
                     </li>
             </li>
-            <li><input type="checkbox" >Mobile: remove table and add a schedule (sorted by day)
+            <li><input type="checkbox">Mobile: remove table and add a schedule (sorted by day)
             </li>
-            <li><input type="checkbox" >Schedule: sort by subject</li>
+            <li><input type="checkbox">Schedule: sort by subject</li>
             </li>
         </ul>
         <li>
         <li><b>Styling</b>
             <ul class="todo-list">
-                <li><input type="checkbox"  checked>Inputs</li>
-                <li><input type="checkbox"  checked>Dark mode toggle</li>
-                <li><input type="checkbox"  checked>Favicon</li>
-                <li><input type="checkbox" >Responsive Design</li>
+                <li><input type="checkbox">Responsive Design</li>
+                <li><input type="checkbox">User-defined colors</li>
+                <li><input type="checkbox">Monochrome colors</li>
+                <li><input type="checkbox" checked>Inputs</li>
+                <li><input type="checkbox" checked>Dark mode toggle</li>
+                <li><input type="checkbox" checked>Favicon</li>
+                <li><input type="checkbox" checked>Add AN and FN slots</li>
             </ul>
         </li>
-        <li><b>Other Functionalities</b>
+        <li><b>Other</b>
             <ul class="todo-list">
-                <li><input type="checkbox" checked >js Bookmarklet (will make this app work without having to
+                <li><input type="checkbox">Display error message when two or more courses added conflict in slots (e.g.
+                    FN1 and A)</li>
+                <li><input type="checkbox">"Download as PDF" button</li>
+                <li><input type="checkbox">Reminder Shortcut (iOS + iPadOS + macOS)</li>
+                <li><input type="checkbox">(Speculative) Google Calendar Integration</li>
+                <li><input type="checkbox" checked>js Bookmarklet (will make this app work without having to
                     enter any input -
                     extracts html from <a href="https://erp.iith.ac.in">IITH ERP website</a>)</li>
-                <li><input type="checkbox"  checked>"Print" button</li>
-                <li><input type="checkbox" >"Download as PDF" button</li>
-                <li><input type="checkbox" >Reminder Shortcut (iOS + iPadOS + macOS)</li>
-                <li><input type="checkbox" >(Speculative) Google Calendar Integration</li>
+                <li><input type="checkbox" checked>"Print" button</li>
             </ul>
-        <li><input type="checkbox" >(speculative++) Clean js and css code</li>
+        <li><input type="checkbox">(speculative++) Clean js and css code</li>
         </ul>
         </li>
     </section>
