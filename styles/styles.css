@@ -316,7 +316,7 @@ h2 {
     color: var(--on-highlighted-cell);
 }
 
-.e {
+.e, .fn5 {
     background-color: var(--e);
     color: var(--on-highlighted-cell);
 }
@@ -466,4 +466,7 @@ tr > td[colspan="3"] {
 /* breakpoint 1: 1024px */
 .hidden {
     display: none;
+}
+.force {
+    display: table-cell !important;
 }
