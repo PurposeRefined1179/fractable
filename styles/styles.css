@@ -32,7 +32,7 @@ body {
     padding-top: calc(var(--body-padding)/var(--h1-line-height));
     margin: 0;
     background-color: var(--paper);
-    /* transition: all 0.3s; */
+    transition: all 0.3s;
     color: var(--text)
 }
 
@@ -40,14 +40,12 @@ body {
 :root {
     --theme-toggler-background-color: var(--base-100);
     --theme-toggler-border:1px solid var(--base-300);
-    --theme-toggler-svg-color: var(--base-700);
-    --theme-toggler-svg-content: something;
+    --theme-toggle-image: url(../assets/toDarkMode.svg)
 }
 .dark {
     --theme-toggler-background-color: var(--base-900);
     --theme-toggler-border: 1px solid var(--base-800);
-    --theme-toggler-svg-color: var(--base-300);
-    --theme-toggler-svg-content: something_else;
+    --theme-toggle-image: url(../assets/toLightMode.svg)
 
 }
 #theme-toggler {
@@ -64,28 +62,31 @@ body {
     cursor: pointer;
 }
 
-#theme-toggler svg {
-    color: var(--theme-toggler-svg-color);
+#theme-toggler toggle {
+    width: 24px;
+    height: 24px;
+    border: transparent;
+    background-image: var(--theme-toggle-image);
 }
 
 /* Input */
 :root {
-    --add-subject-border: var(--base-200);
-    --input-subject-code-border: var(--base-300) ;
-    --input-subject-code-text-color: var(--base-900);
-    --input-subject-code-placeholder-color: var(--base-800);
+    --add-course-border: var(--base-200);
+    --input-course-code-border: var(--base-300) ;
+    --input-course-code-text-color: var(--base-900);
+    --input-course-code-placeholder-color: var(--base-800);
     --add-entry-background-color: var(--base-50);
 }
 .dark {
-    --add-subject-border: var(--base-800);
-    --input-subject-code-border: var(--base-700) ;
-    --input-subject-code-text-color: var(--base-100);
-    --input-subject-code-placeholder-color: var(--base-150);
+    --add-course-border: var(--base-800);
+    --input-course-code-border: var(--base-700) ;
+    --input-course-code-text-color: var(--base-100);
+    --input-course-code-placeholder-color: var(--base-150);
     --add-entry-background-color: var(--base-900);
 }
 
 #add-entry {
-    border: 1px solid var(--add-subject-border);
+    border: 1px solid var(--add-course-border);
     border-radius: 4.235px;
     display: flex;
     width: fit-content;
@@ -95,12 +96,12 @@ body {
 }
 .inputs, .inputs:active {
     outline: none;
-    border: 1px solid var(--input-subject-code-border); 
+    border: 1px solid var(--input-course-code-border); 
     border-radius: 3.235px;
     line-height: 1.9;
     padding-left: 0.5em;
     padding-right: 0.5em;
-    color: var(--input-subject-code-text-color);
+    color: var(--input-course-code-text-color);
     background-color: var(--paper);
     font-size: 1em;
     /* appearance: none; */
@@ -108,7 +109,7 @@ body {
     padding-bottom: 0.2em;
 }
 .inputs::placeholder {
-    color: var(--input-subject-code-placeholder-color);
+    color: var(--input-course-code-placeholder-color);
 }
 
 .submit-button, .submit-button:active, .submit-button:focus, .submit-button:focus-visible {
@@ -130,27 +131,21 @@ body {
 }
 
 :root {
-    --subject-code-bg: var(--white);
-    --subject-code-bg-focus: hsl(54, 100%, 98%);
+    --course-code-bg: var(--white);
+    --course-code-bg-focus: hsl(54, 100%, 98%);
 }
 
 .dark {
-    --subject-code-bg: var(--base-950);
-    --subject-code-bg-focus: #151414;
+    --course-code-bg: var(--base-950);
+    --course-code-bg-focus: #151414;
 }
-#subject-code {
-    background-color: var(--subject-code-bg);
+#course-code {
+    background-color: var(--course-code-bg);
 }
-#subject-code:focus, .inputs:focus {
-    background-color: var(--subject-code-bg-focus);
-    box-shadow: 0 0 0 1.21px var(--input-subject-code-border); 
+#course-code:focus, .inputs:focus {
+    background-color: var(--course-code-bg-focus);
+    box-shadow: 0 0 0 1.21px var(--input-course-code-border); 
     transition: box-shadow 0.2s ease-in-out;
-}
-
-.n_toggle {
-    width: fit-content;
-    margin: 1em auto;
-
 }
 
 /* Table Cells: Colors */
@@ -278,7 +273,7 @@ h2 {
     width: 100%;
 }
 .class {
-    border: 1px solid var(--add-subject-border);
+    border: 1px solid var(--add-course-border);
     display: flex;
     width: fit-content;
     padding: 10px;
@@ -376,7 +371,7 @@ h2 {
     --input-font-size: 1.129em;
     --input-letter-spacing: -0.017em;
     
-    --input-subject-code-font-size: 1.129em;
+    --input-course-code-font-size: 1.129em;
     --input-subject-name-font-size: 0.78em;
 }
 

@@ -3,9 +3,8 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Fractable - TimeTable Generator for Fractal Academic System</title>
-
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0" /> -->
+    <title>Fractable</title>
     <link rel="stylesheet" href="./styles/styles.css">
     <link rel="stylesheet" href="./styles/colors.css">
     <link rel="stylesheet" href="./styles/to-do.css">
@@ -14,19 +13,17 @@
     </style>
 
     <!-- Favicon -->
-    <link rel="icon" href="./assets/fractable-icon.svg">
-    <link rel="icon" href="./assets/fractable-icon.png">
-    <link rel="apple-touch-icon" href="./assets/fractable-icon.png">
-    <link rel="icon" href="/fractable-icon.ico" />
+    <link rel="icon" href="./assets/favicon/fractable-icon.svg">
+    <link rel="icon" href="./assets/favicon/fractable-icon.png">
+    <link rel="apple-touch-icon" href="./assets/favicon/fractable-icon.png">
+    <link rel="icon" href="/assets/favicon/fractable-icon.ico" />
 </head>
 
 <body>
-    <button title="Switch to Dark Mode" id="theme-toggler" aria-label="Switch to Dark Mode"><svg
-            xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-            class="lucide lucide-moon">
-            <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z" />
-        </svg></button>
+    <button title="Switch to Dark Mode" id="theme-toggler" aria-label="Switch to Dark Mode"
+        onclick="document.body.classList.toggle('dark');">
+        <toggle></toggle>
+    </button>
     <h1>Fractable: Timetable Generator</h1>
 
     <div id="add-entry" class="center">
@@ -47,17 +44,13 @@
             <option id="slot_fn2">Slot FN2</option>
             <option id="slot_an2">Slot AN2</option>
             <option id="slot_fn3">Slot FN3</option>
-            <option id="slot_an3">Slot AN3</option>
             <option id="slot_fn4">Slot FN4</option>
             <option id="slot_an4">Slot AN4</option>
             <option id="slot_fn5">Slot FN5</option>
             <option id="slot_an5">Slot AN5</option>
         </select>
-        <input type="text" placeholder="Type course code here" id="subject-code" class="inputs">
-        <button type="button" id="add-subject" class="submit-button">Add Course</button>
-    </div>
-    <div class="n_toggle">
-        <input type="checkbox" id="n-toggle" checked><label for="n-toggle">Hide FN and AN slots</label>
+        <input type="text" placeholder="Type course code here" id="course-code" class="inputs">
+        <button type="button" id="add-course" class="submit-button">Add Course</button>
     </div>
     <div id="courses">
         <!-- <div id="entry_a">
@@ -87,7 +80,7 @@
                 <th>10:00<br>10.55</th>
                 <th>11.00<br>11.55</th>
                 <th>12.00<br>12.55</th>
-                <th rowspan="1">12.55<br>14.30</th>
+                <th>12.55<br>14.30</th>
                 <th>14.30<br>15.55</th>
                 <th>16.00<br>17.25</th>
                 <!-- <td></td>
@@ -96,11 +89,12 @@
             </tr>
             <tbody>
                 <tr>
-                    <td class="day toggle_n" rowspan="1">Monday</td>
+                    <td class="day">Monday</td>
+                    <td id="fn1" class="hidden" colspan="3">FN1</td>
                     <td id="a">A</td>
                     <td id="b">B</td>
                     <td id="c">C</td>
-                    <td id="d" class="toggle_n" rowspan="1">D</td>
+                    <td id="d">D</td>
                     <td rowspan="10" class="vertical-text"><svg xmlns="http://www.w3.org/2000/svg" width="24"
                             height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                             stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-utensils">
@@ -108,68 +102,58 @@
                             <path d="M7 2v20" />
                             <path d="M21 15V2a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3Zm0 0v7" />
                         </svg></td>
-                    <td id="p">P</td>
-                    <td id="q">Q</td>
-                </tr>
-                <tr>
-                    <td id="fn1" class="hidden" colspan="3">FN1</td>
                     <td id="an1" class="hidden" colspan="2">AN1</td>
+                    <td id="p">P</td>
+                    <td id="q">Q</td>
                 </tr>
                 <tr>
-                    <td class="day toggle_n" rowspan="1">Tuesday</td>
+                    <td class="day">Tuesday</td>
+                    <td id="fn2" class="hidden" colspan="3">FN2</td>
                     <td id="d">D</td>
                     <td id="e">E</td>
                     <td id="f">F</td>
-                    <td id="g" class="toggle_n" rowspan="1">G</td>
+                    <td id="g">G</td>
+                    <td id="an2" class="hidden" colspan="2">AN2</td>
                     <td id="r">R</td>
                     <td id="s">S</td>
                 </tr>
                 <tr>
-                    <td id="fn2" class="hidden" colspan="3">FN2</td>
-                    <td id="an2" class="hidden" colspan="2">AN2</td>
+
                 </tr>
                 <tr>
-                    <td class="day toggle_n" rowspan="1">Wednesday</td>
-                    <td id="b">B</td>
-                    <td id="c">C</td>
-                    <td id="a">A</td>
-                    <td id="g" class="toggle_n" rowspan="1">G</td>
-                    <td id="f">F</td>
-                    <td id="s0">s0</td>
-                </tr>
-                <tr>
+                    <td class="day">Wednesday</td>
                     <td id="fn3" class="hidden" colspan="3">FN3</td>
-                    <td id="an3" class="hidden" colspan="2">AN3</td>
+                    <td id="b">B</td>
+                    <td id="c">C</td>
+                    <td id="a">A</td>
+                    <td id="g">G</td>
+                    <td id="f" colspan="2">Lab (F)</td>
                 </tr>
                 <tr>
-                    <td class="day toggle_n" rowspan="1">Thursday</td>
+                    <td class="day">Thursday</td>
+                    <td id="fn4" class="hidden" colspan="3">FN4</td>
                     <td id="c">C</td>
                     <td id="a">A</td>
                     <td id="b">B</td>
-                    <td id="e" class="toggle_n" rowspan="1">E</td>
+                    <td id="e">E</td>
+                    <td id="an4" class="hidden" colspan="2">AN4</td>
                     <td id="q">Q</td>
                     <td id="p">P</td>
                 </tr>
                 <tr>
-                    <td id="fn4" class="hidden" colspan="3">FN4</td>
-                    <td id="an4" class="hidden" colspan="2">AN4</td>
-                </tr>
-                <tr>
-                    <td class="day toggle_n" rowspan="1">Friday</td>
+                    <td class="day">Friday</td>
+                    <td id="fn5" class="hidden" colspan="3">FN5</td>
                     <td id="e">E</td>
                     <td id="f">F</td>
                     <td id="d">D</td>
-                    <td id="g" class="toggle_n" rowspan="1">G</td>
+                    <td id="g">G</td>
+                    <td id="an5" class="hidden" colspan="2">AN5</td>
                     <td id="s">S</td>
                     <td id="r">R</td>
-                </tr>
-                <tr>
-                    <td id="fn5" class="hidden" colspan="3">FN5</td>
-                    <td id="an5" class="hidden" colspan="2">AN5</td>
                 </tr>
             </tbody>
         </table>
-        <!-- <button id="save-pdf" class="inputs submit-button">Download as PDF </button> -->
+
     </section>
     <div class="center" style="margin-top: 2em"><button id="print-table" class="submit-button center print-button"><svg
                 xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
@@ -212,7 +196,7 @@
         <table class="changelog">
             <tr>
                 <td>27 January 2024</td>
-                <td>Added FN and AN slots</td>
+                <td>Added forenoon and afternoon slots ⚒️</td>
             </tr>
             <tr>
                 <td>27 January 2024</td>
@@ -266,7 +250,9 @@
         </li>
     </section>
 </body>
-<script src="./script.js"></script>
-<script src="./print.js"></script>
+
+<script src="./scripts/main.js"></script>
+<script src="./scripts/bookmarklet.js"></script>
+<script src="./scripts/print_and_save.js"></script>
 
 </html>
