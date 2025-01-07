@@ -2,7 +2,10 @@
     box-sizing: border-box;
     font-family: "Segoe UI Variable Display", "Roboto", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont;
 }
-
+/* Remove gloss effect on select element on Safari  */
+select {
+    -webkit-appearance: none;
+}
 :root {
     font-family: "Segoe UI Variable Display", "Roboto", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont;
     
