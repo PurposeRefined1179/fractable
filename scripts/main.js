@@ -399,6 +399,11 @@ window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e =
   }
 });
 
+// set theme based on system theme on page load
+if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+  document.body.classList.add("dark");
+}
+
 
 // make all h2 level headings collapsible and add an arrow  to indicate collapsibility
 const h2s = document.querySelectorAll("h2");
@@ -409,5 +414,3 @@ h2s.forEach(h2 => {
     h2.querySelector(".collapsible-arrow").textContent = h2.nextElementSibling.classList.contains("hidden") ? "▶" : "▼";
   })
 })
-
-
