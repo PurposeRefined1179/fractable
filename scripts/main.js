@@ -4,8 +4,14 @@ const addCourse = document.getElementById("add-course")
 const slotSelectorDOM = document.getElementById("slot-selector")
 
 const courseCodeDOM = document.getElementById("course-code")
+
+const courseNameDOM = document.getElementById("course-name")
+
 const outputTable = document.getElementById("output-table")
 const courses = document.getElementById("courses")
+
+// record time when page is loaded
+const loadTime = new Date();
 
 const segmentDates = {
   "1-2": { start: new Date('2023-01-01'), end: new Date('2023-02-28') },
@@ -13,7 +19,7 @@ const segmentDates = {
   "5-6": { start: new Date('2023-05-01'), end: new Date('2023-06-30') }
 };
 
-const slotData = [
+var slotData = [
   {
     slot: "a",
     courseCode: "",
@@ -26,7 +32,9 @@ const slotData = [
       { day: "Thursday", time: "10.00 - 10.55" }
     ],
     conflicts: ["fn1", "fn3", "fn4"],
-    segments: []
+    segments: [],
+    dateAdded: undefined,
+    dateModified: undefined
   },
   {
     slot: "b",
@@ -40,7 +48,9 @@ const slotData = [
       { day: "Thursday", time: "11.00 - 11.55" }
     ],
     conflicts: ["fn1", "fn3", "fn4"],
-    segments: []
+    segments: [],
+    dateAdded: undefined,
+    dateModified: undefined
   },
   {
     slot: "c",
@@ -54,7 +64,9 @@ const slotData = [
       { day: "Thursday", time: "09.00 - 09.55" }
     ],
     conflicts: ["fn1", "fn3", "fn4"],
-    segments: []
+    segments: [],
+    dateAdded: undefined,
+    dateModified: undefined
   },
   {
     slot: "d",
@@ -68,7 +80,9 @@ const slotData = [
       { day: "Friday", time: "11.00 - 11.55" }
     ],
     conflicts: ["fn2", "fn5"],
-    segments: []
+    segments: [],
+    dateAdded: undefined,
+    dateModified: undefined
   },
   {
     slot: "e",
@@ -82,7 +96,9 @@ const slotData = [
       { day: "Friday", time: "09.00 - 09.55" }
     ],
     conflicts: ["fn2", "fn5"],
-    segments: []
+    segments: [],
+    dateAdded: undefined,
+    dateModified: undefined
   },
   {
     slot: "f",
@@ -96,7 +112,9 @@ const slotData = [
       { day: "Friday", time: "10.00 - 10.55" }
     ],
     conflicts: ["fn2", "fn5"],
-    segments: []
+    segments: [],
+    dateAdded: undefined,
+    dateModified: undefined
   },
   {
     slot: "g",
@@ -110,7 +128,9 @@ const slotData = [
       { day: "Friday", time: "12.00 - 12.55" }
     ],
     conflicts: [],
-    segments: []
+    segments: [],
+    dateAdded: undefined,
+    dateModified: undefined
   },
   {
     slot: "p",
@@ -123,7 +143,9 @@ const slotData = [
       { day: "Thursday", time: "16.00 - 17.25" }
     ],
     conflicts: ["an1", "an4"],
-    segments: []
+    segments: [],
+    dateAdded: undefined,
+    dateModified: undefined
   },
   {
     slot: "q",
@@ -136,7 +158,9 @@ const slotData = [
       { day: "Thursday", time: "14.30 - 15.55" }
     ],
     conflicts: ["an1", "an4"],
-    segments: []
+    segments: [],
+    dateAdded: undefined,
+    dateModified: undefined
   },
   {
     slot: "r",
@@ -149,7 +173,9 @@ const slotData = [
       { day: "Friday", time: "16.00 - 17.25" }
     ],
     conflicts: ["an2", "an5"],
-    segments: []
+    segments: [],
+    dateAdded: undefined,
+    dateModified: undefined
   },
   {
     slot: "s",
@@ -162,7 +188,9 @@ const slotData = [
       { day: "Friday", time: "14.30 - 15.55" }
     ],
     conflicts: ["an2", "an5"],
-    segments: []
+    segments: [],
+    dateAdded: undefined,
+    dateModified: undefined
   },
   {
     slot: "fn1",
@@ -174,7 +202,9 @@ const slotData = [
       { day: "Monday", time: "09.00 - 11.25" }
     ],
     conflicts: ["a", "b", "c"],
-    segments: []
+    segments: [],
+    dateAdded: undefined,
+    dateModified: undefined
   },
   {
     slot: "fn2",
@@ -186,7 +216,9 @@ const slotData = [
       { day: "Tuesday", time: "09.00 - 11.25" }
     ],
     conflicts: ["d", "e", "f"],
-    segments: []
+    segments: [],
+    dateAdded: undefined,
+    dateModified: undefined
   },
   {
     slot: "fn3",
@@ -198,7 +230,9 @@ const slotData = [
       { day: "Wednesday", time: "09.00 - 11.25" }
     ],
     conflicts: ["b", "c", "a"],
-    segments: []
+    segments: [],
+    dateAdded: undefined,
+    dateModified: undefined
   },
   {
     slot: "fn4",
@@ -210,7 +244,9 @@ const slotData = [
       { day: "Thursday", time: "09.00 - 11.25" }
     ],
     conflicts: ["c", "a", "b"],
-    segments: []
+    segments: [],
+    dateAdded: undefined,
+    dateModified: undefined
   },
   {
     slot: "fn5",
@@ -222,7 +258,9 @@ const slotData = [
       { day: "Friday", time: "09.00 - 11.25" }
     ],
     conflicts: ["e", "f", "d"],
-    segments: []
+    segments: [],
+    dateAdded: undefined,
+    dateModified: undefined
   },
   {
     slot: "an1",
@@ -234,7 +272,9 @@ const slotData = [
       { day: "Monday", time: "14.30 - 17.25" }
     ],
     conflicts: ["p", "q"],
-    segments: []
+    segments: [],
+    dateAdded: undefined,
+    dateModified: undefined
   },
   {
     slot: "an2",
@@ -246,7 +286,9 @@ const slotData = [
       { day: "Tuesday", time: "14.30 - 17.25" }
     ],
     conflicts: ["r", "s"],
-    segments: []
+    segments: [],
+    dateAdded: undefined,
+    dateModified: undefined
   },
   {
     slot: "an3",
@@ -258,7 +300,9 @@ const slotData = [
       { day: "Wednesday", time: "14.30 - 17.25" }
     ],
     conflicts: [],
-    segments: []
+    segments: [],
+    dateAdded: undefined,
+    dateModified: undefined
   },
   {
     slot: "an4",
@@ -270,7 +314,9 @@ const slotData = [
       { day: "Thursday", time: "14.30 - 17.25" }
     ],
     conflicts: ["q", "p"],
-    segments: []
+    segments: [],
+    dateAdded: undefined,
+    dateModified: undefined
   },
   {
     slot: "an5",
@@ -282,7 +328,9 @@ const slotData = [
       { day: "Friday", time: "14.30 - 17.25" }
     ],
     conflicts: ["s", "r"],
-    segments: []
+    segments: [],
+    dateAdded: undefined,
+    dateModified: undefined
   }
 ];
 
@@ -323,22 +371,140 @@ const hideConflictingSlots = (slotLetters) => {
   return;
 }
 
+
+const exportToICS = () => {
+  let icsContent = "BEGIN:VCALENDAR\nVERSION:2.0\nPRODID:-//Your Organization//Your Product//EN\n";
+
+  slotData.forEach(slot => {
+    if (slot.segments.length === 0) return;
+
+    console.log(slot.slot);
+    slot.segments.forEach(segment => {
+      console.log(typeof segment);
+      // output is 1-6
+      console.log(segmentDates);
+      const segmentDate = segmentDates[segment];
+      console.log(segment);
+      console.log(segmentDate);
+      // output is undefined, why?
+
+      if (!segmentDate) return;
+      slot.classTimings.forEach(timing => {
+        const [startHour, startMinute] = timing.time.split(" - ")[0].split(".");
+        const [endHour, endMinute] = timing.time.split(" - ")[1].split(".");
+
+        icsContent += `BEGIN:VEVENT\n`;
+        icsContent += `SUMMARY:${slot.courseName}\n`;
+        icsContent += `DESCRIPTION:Course Code: ${slot.courseCode}\\nInstructors: ${slot.instructors.join(", ")}\n`;
+        icsContent += `DTSTART;TZID=UTC:${formatDate(segmentDate.start, timing.day, startHour, startMinute)}\n`;
+        icsContent += `DTEND;TZID=UTC:${formatDate(segmentDate.start, timing.day, endHour, endMinute)}\n`;
+        icsContent += `RRULE:FREQ=WEEKLY;UNTIL=${formatDate(segmentDate.end, timing.day, endHour, endMinute, true)}\n`;
+        icsContent += `END:VEVENT\n`;
+      });
+    });
+  });
+
+  icsContent += "END:VCALENDAR";
+  // console log the ics content
+  console.log(icsContent);
+  const blob = new Blob([icsContent], { type: "text/calendar" });
+  const link = document.createElement("a");
+  link.href = URL.createObjectURL(blob);
+  link.download = "schedule.ics";
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
+};
+
+const formatDate = (date, day, hour, minute, isEnd = false) => {
+  const dayMap = {
+    "Monday": 1,
+    "Tuesday": 2,
+    "Wednesday": 3,
+    "Thursday": 4,
+    "Friday": 5,
+    "Saturday": 6,
+    "Sunday": 0
+  };
+
+  const resultDate = new Date(date);
+  resultDate.setDate(resultDate.getDate() + ((dayMap[day] - resultDate.getDay() + 7) % 7));
+  resultDate.setHours(hour, minute, 0, 0);
+
+  if (isEnd) {
+    resultDate.setHours(hour, minute, 59, 999);
+  }
+
+  return resultDate.toISOString().replace(/[-:]/g, "").split(".")[0] + "Z";
+};
+
+document.getElementById("export-ics").addEventListener("click", exportToICS);
+
+// store the data in local storage
+const storeData = () => {
+  localStorage.setItem("slotData", JSON.stringify(slotData));
+}
+// load the data from local storage
+const loadData = () => {
+  const data = localStorage.getItem("slotData");
+  if (data) {
+    slotData = JSON.parse(data);
+  }
+}
+
+// add event listener to store data on window unload
+window.BeforeUnloadEvent = storeData;
+// load data on page load
+window.addEventListener("load", () => {
+  loadData();
+  slotData.forEach(slot => {
+    slot.segments.forEach(segment => {
+      highlightSubject(slot.courseCode, slot.slot);
+    });
+  });
+}
+);
+
+// update ui
+
+
+
 function addSlot(courseCodeElement, courseSlotElement) {
   const courseCode = courseCodeElement.value;
   const courseSlot = courseSlotElement.value.split(" ")[1].toLowerCase();
-  const slotToAdd = slotData.find(subject => subject.slot === courseSlot)
+  const courseName = courseNameDOM.value;
+  const segmentElement = document.getElementById("segment");
+  const segment = segmentElement.value;
+  const slotToAdd = slotData.find(subject => subject.slot === courseSlot);
+
+  const segmentRegex = /^[1-6]-[1-6]$/;
+  if (!segmentRegex.test(segment)) {
+    segmentElement.classList.add("error");
+    segmentElement.setAttribute("title", "Segment must be in the format X-Y where X and Y are digits between 1 and 6.");
+    return;
+  } else {
+    segmentElement.classList.remove("error");
+    segmentElement.removeAttribute("title");
+  }
 
   if (slotToAdd.courseCode !== "") {
     if (!askConfirmation("A course at this slot already exists. Replace?")) {
       return;
     }
+    slotToAdd.dateModified = new Date();
+  } else {
+    slotToAdd.dateAdded = new Date();
   }
+  slotToAdd.courseName = courseName;
   slotToAdd.courseCode = courseCode;
-  hideConflictingSlots(slotToAdd.conflicts)
+  slotToAdd.segments.push(segment);
+  console.log(slotToAdd.segments);
+  hideConflictingSlots(slotToAdd.conflicts);
+
   if (courseCode === "") {
     if (!askConfirmation("Course code empty. Continue?")) {
       return;
-    } hideConflictingSlots
+    }
   }
 
   highlightSubject(courseCode, courseSlot);

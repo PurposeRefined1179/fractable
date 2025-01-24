@@ -28,6 +28,8 @@
     <toggle></toggle>
   </button>
   <h1>Fractable: Timetable Generator</h1>
+  <!-- add a caution that the web page is in development -->
+  <p class="center caution">This webpage is not completed. Please report any bugs or issues to the developer.</p>
 
   <div id="add-entry" class="center">
     <select id="slot-selector" class="inputs">
@@ -52,9 +54,11 @@
       <option id="slot_fn5">Slot FN5</option>
       <option id="slot_an5">Slot AN5</option>
     </select>
-    <input type="text" placeholder="Type course code here" id="course-code" class="inputs">
+    <input type="text" placeholder="Intro to Programming" id="course-name" class="inputs">
+    <input type="text" placeholder="ID1063" id="course-code" class="inputs">
+    <input type="text" placeholder="1-6" id="segment" class="inputs">
     <button type="button" id="add-course" class="submit-button">Add Course</button>
-    <!-- add an input type of dropdown to select between segments -->
+    <!--  -->
 
   </div>
 
@@ -104,9 +108,6 @@
           <td id="s">S</td>
         </tr>
         <tr>
-
-        </tr>
-        <tr>
           <td class="day">Wednesday</td>
           <td id="fn3" class="hidden" colspan="3">FN3</td>
           <td id="b">B</td>
@@ -148,6 +149,13 @@
         <path d="M6 9V3a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v6" />
         <rect x="6" y="14" width="12" height="8" rx="1" />
       </svg><span>Print</span></button></div>
+  <div class="center" style="margin-top: 2em"><button id="export-ics" class="submit-button center print-button"><svg
+        xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+        stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-printer">
+        <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2" />
+        <path d="M6 9V3a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v6" />
+        <rect x="6" y="14" width="12" height="8" rx="1" />
+      </svg><span>Export</span></button></div>
 
   <!-- <section class="classes">
         <h2 width="100%">Classes</h2>
@@ -166,36 +174,37 @@
 
     </section> -->
   <section>
-      <h2>Create table in a few clicks: Bookmarklet</h2>
-      You can create a bookmarklet to create the timetable in a few clicks <br>
-      To create the bookmarklet, simply drag the "Fractabler" link below into your bookmarks.
-      <br>
-      <a id="bookmarklet" href="">Fractabler</a>
-      <br>
-      Then click the bookmark when you are on the course registration form page in ERP.
+    <h2>Create table in a few clicks: Bookmarklet</h2>
+    You can create a bookmarklet to create the timetable in a few clicks <br>
+    To create the bookmarklet, simply drag the "Fractabler" link below into your bookmarks.
+    <br>
+    <a id="bookmarklet" href="">Fractabler</a>
+    <br>
+    Then click the bookmark when you are on the course registration form page in ERP.
     <br>
   </section>
   <section class="todo-section">
-<details>
-  <summary>Changelog</summary>
-  <table class="changelog">
-    <tr>
-      <td>18 January 2025</td>
-      <td>The webpage now loads with its theme set to the system theme 😊</td>
-    </tr>
-    <tr>
-      <td>18 January 2025</td>
-    <td>Added new shortcut: press d to toggle theme.</td></tr>
-    <tr>
-      <td>27 July 2024</td>
-      <td>Added forenoon and afternoon slots ⚒️</td>
-    </tr>
-    <tr>
-      <td>27 July 2024</td>
-      <td>Added changelog 🙄</td>
-    </tr>
-  </table>
-</details>
+    <details>
+      <summary>Changelog</summary>
+      <table class="changelog">
+        <tr>
+          <td>18 January 2025</td>
+          <td>The webpage now loads with its theme set to the system theme 😊</td>
+        </tr>
+        <tr>
+          <td>18 January 2025</td>
+          <td>Added new shortcut: press d to toggle theme.</td>
+        </tr>
+        <tr>
+          <td>27 July 2024</td>
+          <td>Added forenoon and afternoon slots ⚒️</td>
+        </tr>
+        <tr>
+          <td>27 July 2024</td>
+          <td>Added changelog 🙄</td>
+        </tr>
+      </table>
+    </details>
     <details>
       <summary>To-do</summary>
       You can contribute to the code through Pull Requests and Bug Reports on the <a

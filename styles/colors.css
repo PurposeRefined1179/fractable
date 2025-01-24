@@ -6,6 +6,7 @@
     --base-150: #DAD8CE;
     --base-200: #CECDC3;
     --base-300: #B7B5AC;
+    --base-400: rgb(183, 181, 172);
     --base-500: #878580;
     --base-600: #6F6E69;
     --base-700: #575653;
@@ -18,6 +19,8 @@
     --black-opacity-10: #100F0F10;
     --paper-opacity-10: #FFFCF010;
 
+    /* accent colors */
+    --red-150: rgb(253, 178, 162);
     --red-400: #D14D41;
     --red-600: #AF3029;
     --orange-400: #DA702C;
