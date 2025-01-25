@@ -9,6 +9,7 @@
   <link rel="stylesheet" href="./styles/colors.css">
   <link rel="stylesheet" href="./styles/to-do.css">
   <link rel="stylesheet" href="./styles/flexoki.css">
+  <link rel="stylesheet" href="./styles/normalize.css">
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
   </style>
@@ -23,236 +24,264 @@
 </head>
 
 <body>
-  <button title="Switch to Dark Mode" id="theme-toggler" aria-label="Switch to Dark Mode"
-    onclick="document.body.classList.toggle('dark');">
-    <toggle></toggle>
-  </button>
-  <h1>Fractable: Timetable Generator</h1>
-  <!-- add a caution that the web page is in development -->
-  <p class="center caution">This webpage is not completed. Please report any bugs or issues to the developer.</p>
+  <content>
+    <button title="Switch to Dark Mode" id="theme-toggler" aria-label="Switch to Dark Mode" onclick="toggleTheme()">
+      <toggle></toggle>
+    </button>
+    <h1>Fractable: Timetable Generator</h1>
 
-  <div id="add-entry" class="center">
-    <select id="slot-selector" class="inputs">
-      <option id="slot_a">Slot A</option>
-      <option id="slot_b">Slot B</option>
-      <option id="slot_c">Slot C</option>
-      <option id="slot_d">Slot D</option>
-      <option id="slot_e">Slot E</option>
-      <option id="slot_f">Slot F</option>
-      <option id="slot_g">Slot G</option>
-      <option id="slot_p">Slot P</option>
-      <option id="slot_q">Slot Q</option>
-      <option id="slot_r">Slot R</option>
-      <option id="slot_s">Slot S</option>
-      <option id="slot_fn1">Slot FN1</option>
-      <option id="slot_an1">Slot AN1</option>
-      <option id="slot_fn2">Slot FN2</option>
-      <option id="slot_an2">Slot AN2</option>
-      <option id="slot_fn3">Slot FN3</option>
-      <option id="slot_fn4">Slot FN4</option>
-      <option id="slot_an4">Slot AN4</option>
-      <option id="slot_fn5">Slot FN5</option>
-      <option id="slot_an5">Slot AN5</option>
-    </select>
-    <input type="text" placeholder="Intro to Programming" id="course-name" class="inputs">
-    <input type="text" placeholder="ID1063" id="course-code" class="inputs">
-    <input type="text" placeholder="1-6" id="segment" class="inputs">
-    <button type="button" id="add-course" class="submit-button">Add Course</button>
-    <!--  -->
+    <!-- add a caution that the web page is in development -->
+    <!-- <p class="center caution">This webpage is not completed. Please report any bugs or issues to the developer.</p> -->
+    <button id="clear-data">Clear Data</button>
+    <div id="add-entry" class="center">
+      <span class="eyebrow">
+        <input type="text" placeholder="Course Code" id="course-code" class="inputs course-code">
+      </span>
+      <input type="text" placeholder="Intro to Programming" id="course-name" class="inputs course-name">
+      <span class="course-secondary-details">
+        <input type="text" placeholder="LHC 5" id="course-location" class="inputs location">
+        <span>•</span>
+        <select id="slot-selector" class="inputs">
+          <option id="slot_a">Slot A</option>
+          <option id="slot_b">Slot B</option>
+          <option id="slot_c">Slot C</option>
+          <option id="slot_d">Slot D</option>
+          <option id="slot_e">Slot E</option>
+          <option id="slot_f">Slot F</option>
+          <option id="slot_g">Slot G</option>
+          <option id="slot_p">Slot P</option>
+          <option id="slot_q">Slot Q</option>
+          <option id="slot_r">Slot R</option>
+          <option id="slot_s">Slot S</option>
+          <option id="slot_fn1">Slot FN1</option>
+          <option id="slot_an1">Slot AN1</option>
+          <option id="slot_fn2">Slot FN2</option>
+          <option id="slot_an2">Slot AN2</option>
+          <option id="slot_fn3">Slot FN3</option>
+          <option id="slot_fn4">Slot FN4</option>
+          <option id="slot_an4">Slot AN4</option>
+          <option id="slot_fn5">Slot FN5</option>
+          <option id="slot_an5">Slot AN5</option>
+        </select>
+        <span>•</span>
+        <input type="text" placeholder="1-6" id="segment" class="inputs segment">
+      </span>
+      <input type="text" placeholder="Instructors" id="course-code" class="inputs instructors">
 
-  </div>
+      <button type="button" id="add-course" class="submit-button">Add Course</button>
 
-  <section>
-    <table id="output-table" class="center">
-      <tr>
-        <th>Day</th>
-        <th>9.00<br>9.55</th>
-        <th>10:00<br>10.55</th>
-        <th>11.00<br>11.55</th>
-        <th>12.00<br>12.55</th>
-        <th>12.55<br>14.30</th>
-        <th>14.30<br>15.55</th>
-        <th>16.00<br>17.25</th>
-        <!-- <td></td>
-                    <td>18.00<br>19.25</td>
-                    <td>19.30<br>21.00</td> -->
-      </tr>
-      <tbody>
-        <tr>
-          <td class="day">Monday</td>
-          <td id="fn1" class="hidden" colspan="3">FN1</td>
-          <td id="a">A</td>
-          <td id="b">B</td>
-          <td id="c">C</td>
-          <td id="d" class="force">D</td>
-          <td rowspan="10" class="vertical-text"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-              viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-              stroke-linejoin="round" class="lucide lucide-utensils">
-              <path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2" />
-              <path d="M7 2v20" />
-              <path d="M21 15V2a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3Zm0 0v7" />
-            </svg></td>
-          <td id="an1" class="hidden" colspan="2">AN1</td>
-          <td id="p">P</td>
-          <td id="q">Q</td>
-        </tr>
-        <tr>
-          <td class="day">Tuesday</td>
-          <td id="fn2" class="hidden" colspan="3">FN2</td>
-          <td id="d">D</td>
-          <td id="e">E</td>
-          <td id="f">F</td>
-          <td id="g">G</td>
-          <td id="an2" class="hidden" colspan="2">AN2</td>
-          <td id="r">R</td>
-          <td id="s">S</td>
-        </tr>
-        <tr>
-          <td class="day">Wednesday</td>
-          <td id="fn3" class="hidden" colspan="3">FN3</td>
-          <td id="b">B</td>
-          <td id="c">C</td>
-          <td id="a">A</td>
-          <td id="g">G</td>
-          <td id="f" colspan="2" class="force">Lab (F)</td>
-        </tr>
-        <tr>
-          <td class="day">Thursday</td>
-          <td id="fn4" class="hidden" colspan="3">FN4</td>
-          <td id="c">C</td>
-          <td id="a">A</td>
-          <td id="b">B</td>
-          <td id="e" class="force">E</td>
-          <td id="an4" class="hidden" colspan="2">AN4</td>
-          <td id="q">Q</td>
-          <td id="p">P</td>
-        </tr>
-        <tr>
-          <td class="day">Friday</td>
-          <td id="fn5" class="hidden" colspan="3">FN5</td>
-          <td id="e">E</td>
-          <td id="f">F</td>
-          <td id="d">D</td>
-          <td id="g">G</td>
-          <td id="an5" class="hidden" colspan="2">AN5</td>
-          <td id="s">S</td>
-          <td id="r">R</td>
-        </tr>
-      </tbody>
-    </table>
+    </div>
 
-  </section>
-  <div class="center" style="margin-top: 2em"><button id="print-table" class="submit-button center print-button"><svg
-        xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-        stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-printer">
-        <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2" />
-        <path d="M6 9V3a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v6" />
-        <rect x="6" y="14" width="12" height="8" rx="1" />
-      </svg><span>Print</span></button></div>
-  <div class="center" style="margin-top: 2em"><button id="export-ics" class="submit-button center print-button"><svg
-        xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-        stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-printer">
-        <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2" />
-        <path d="M6 9V3a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v6" />
-        <rect x="6" y="14" width="12" height="8" rx="1" />
-      </svg><span>Export</span></button></div>
-
-  <!-- <section class="classes">
-        <h2 width="100%">Classes</h2>
-        <div class="class">
-            <span>CS1010</span> <span>|</span> <span>Slot A</span>
-            <span>Monday: 9 am</span>
-            <span>Wednesday: 11 am</span>
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.618" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-x"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
-        </div>
-        <div class="class">
-            <span>CS1010</span> <span>Slot A</span>
-            <span>Monday: 9 am</span>
-            <span>Wednesday: 11 am</span>
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.618" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-x"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
-        </div>
-
-    </section> -->
-  <section>
-    <h2>Create table in a few clicks: Bookmarklet</h2>
-    You can create a bookmarklet to create the timetable in a few clicks <br>
-    To create the bookmarklet, simply drag the "Fractabler" link below into your bookmarks.
-    <br>
-    <a id="bookmarklet" href="">Fractabler</a>
-    <br>
-    Then click the bookmark when you are on the course registration form page in ERP.
-    <br>
-  </section>
-  <section class="todo-section">
-    <details>
-      <summary>Changelog</summary>
-      <table class="changelog">
+    <section>
+      <table id="output-table" class="center wide">
         <tr>
-          <td>18 January 2025</td>
-          <td>The webpage now loads with its theme set to the system theme 😊</td>
+          <th></th>
+          <th>9.00<br>9.55</th>
+          <th>10:00<br>10.55</th>
+          <th>11.00<br>11.55</th>
+          <th>12.00<br>12.55</th>
+          <th>12.55<br>14.30</th>
+          <th>14.30<br>15.55</th>
+          <th>16.00<br>17.25</th>
+          <!-- <td></td>
+                        <td>18.00<br>19.25</td>
+                        <td>19.30<br>21.00</td> -->
         </tr>
-        <tr>
-          <td>18 January 2025</td>
-          <td>Added new shortcut: press d to toggle theme.</td>
-        </tr>
-        <tr>
-          <td>27 July 2024</td>
-          <td>Added forenoon and afternoon slots ⚒️</td>
-        </tr>
-        <tr>
-          <td>27 July 2024</td>
-          <td>Added changelog 🙄</td>
-        </tr>
+        <tbody>
+          <tr>
+            <td class="day">Mon</td>
+            <td id="fn1" class="hidden" colspan="3">FN1</td>
+            <td id="a">A</td>
+            <td id="b">B</td>
+            <td id="c">C</td>
+            <td id="d" class="force">D</td>
+            <td rowspan="10" class="vertical-text"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round" class="lucide lucide-utensils">
+                <path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2" />
+                <path d="M7 2v20" />
+                <path d="M21 15V2a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3Zm0 0v7" />
+              </svg></td>
+            <td id="an1" class="hidden" colspan="2">AN1</td>
+            <td id="p">P</td>
+            <td id="q">Q</td>
+          </tr>
+          <tr>
+            <td class="day">TUE</td>
+            <td id="fn2" class="hidden" colspan="3">FN2</td>
+            <td id="d">D</td>
+            <td id="e">E</td>
+            <td id="f">F</td>
+            <td id="g">G</td>
+            <td id="an2" class="hidden" colspan="2">AN2</td>
+            <td id="r">R</td>
+            <td id="s">S</td>
+          </tr>
+          <tr>
+            <td class="day">WED</td>
+            <td id="fn3" class="hidden" colspan="3">FN3</td>
+            <td id="b">B</td>
+            <td id="c">C</td>
+            <td id="a">A</td>
+            <td id="g">G</td>
+            <td id="f" colspan="2" class="force">Lab (F)</td>
+          </tr>
+          <tr>
+            <td class="day">THU</td>
+            <td id="fn4" class="hidden" colspan="3">FN4</td>
+            <td id="c">C</td>
+            <td id="a">A</td>
+            <td id="b">B</td>
+            <td id="e" class="force">E</td>
+            <td id="an4" class="hidden" colspan="2">AN4</td>
+            <td id="q">Q</td>
+            <td id="p">P</td>
+          </tr>
+          <tr>
+            <td class="day">FRI</td>
+            <td id="fn5" class="hidden" colspan="3">FN5</td>
+            <td id="e">E</td>
+            <td id="f">F</td>
+            <td id="d">D</td>
+            <td id="g">G</td>
+            <td id="an5" class="hidden" colspan="2">AN5</td>
+            <td id="s">S</td>
+            <td id="r">R</td>
+          </tr>
+        </tbody>
       </table>
-    </details>
-    <details>
-      <summary>To-do</summary>
-      You can contribute to the code through Pull Requests and Bug Reports on the <a
-        href="https://github.com/PurposeRefined1179/fractable" target="_blank">GitHub repository</a>.
-      <ul class="todo-list">
-        <li><b>Core Functionalities</b>
+
+    </section>
+    <div class="center" style="margin-top: 2em"><button id="print-table" class="output-options"><svg
+          xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+          stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+          class="lucide lucide-printer">
+          <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2" />
+          <path d="M6 9V3a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v6" />
+          <rect x="6" y="14" width="12" height="8" rx="1" />
+        </svg><span>Print</span></button></div>
+    <div class="center" style="margin-top: 2em"><button id="export-ics" class="output-options">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+          stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+          class="lucide lucide-calendar-arrow-down">
+          <path d="m14 18 4 4 4-4" />
+          <path d="M16 2v4" />
+          <path d="M18 14v8" />
+          <path d="M21 11.354V6a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h7.343" />
+          <path d="M3 10h18" />
+          <path d="M8 2v4" />
+        </svg><span>Add to Calendar</span></button></div>
+
+    <!-- <section class="classes">
+            <h2 width="100%">Classes</h2>
+            <div class="class">
+                <span>CS1010</span> <span>|</span> <span>Slot A</span>
+                <span>Monday: 9 am</span>
+                <span>Wednesday: 11 am</span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.618" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-x"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+            </div>
+            <div class="class">
+                <span>CS1010</span> <span>Slot A</span>
+                <span>Monday: 9 am</span>
+                <span>Wednesday: 11 am</span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.618" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-x"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+            </div>
+
+        </section> -->
+    <section>
+      <h2>Create table in a few clicks: Bookmarklet</h2>
+      You can create a bookmarklet to create the timetable in a few clicks <br>
+      To create the bookmarklet, simply drag the "Fractabler" link below into your bookmarks.
+      <br>
+      <a id="bookmarklet" href="">Fractabler</a>
+      <br>
+      Then click the bookmark when you are on the course registration form page in ERP.
+      <br>
+    </section>
+    <section class="todo-section">
+      <details>
+        <summary>Changelog</summary>
+        <table class="changelog">
+          <tr>
+            <td>18 January 2025</td>
+            <td>The webpage now loads with its theme set to the system theme 😊</td>
+          </tr>
+          <tr>
+            <td>18 January 2025</td>
+            <td>Added new shortcut: press d to toggle theme.</td>
+          </tr>
+          <tr>
+            <td>27 July 2024</td>
+            <td>Added forenoon and afternoon slots ⚒️</td>
+          </tr>
+          <tr>
+            <td>27 July 2024</td>
+            <td>Added changelog 🙄</td>
+          </tr>
+        </table>
+      </details>
+      <details>
+        <summary>To-do</summary>
+        You can contribute to the code through Pull Requests and Bug Reports on the <a
+          href="https://github.com/PurposeRefined1179/fractable" target="_blank">GitHub repository</a>.
+        <ul class="todo-list">
+          <li><b>Core Functionalities</b>
+            <ul class="todo-list">
+              <li><input type="checkbox" checked><span class="completed">Colors for remaining slots (P,
+                  Q, R and
+                  S)</span>
+              </li>
+              <li><input type="checkbox"><span class="completed">Accessibility for screen readers</span>
+              </li>
+          </li>
+          <li><input type="checkbox">Mobile: remove table and add a schedule (sorted by day)
+          </li>
+          <li><input type="checkbox">Schedule: sort by subject</li>
+          </li>
+        </ul>
+        <li>
+        <li><b>Styling</b>
           <ul class="todo-list">
-            <li><input type="checkbox" checked><span class="completed">Colors for remaining slots (P,
-                Q, R and
-                S)</span>
-            </li>
-            <li><input type="checkbox"><span class="completed">Accessibility for screen readers</span>
-            </li>
+            <li><input type="checkbox">Responsive Design</li>
+            <li><input type="checkbox">User-defined colors</li>
+            <li><input type="checkbox">Monochrome colors</li>
+            <li><input type="checkbox" checked>Inputs</li>
+            <li><input type="checkbox" checked>Dark mode toggle</li>
+            <li><input type="checkbox" checked>Favicon</li>
+            <li><input type="checkbox" checked>Add AN and FN slots</li>
+          </ul>
         </li>
-        <li><input type="checkbox">Mobile: remove table and add a schedule (sorted by day)
-        </li>
-        <li><input type="checkbox">Schedule: sort by subject</li>
-        </li>
-      </ul>
-      <li>
-      <li><b>Styling</b>
-        <ul class="todo-list">
-          <li><input type="checkbox">Responsive Design</li>
-          <li><input type="checkbox">User-defined colors</li>
-          <li><input type="checkbox">Monochrome colors</li>
-          <li><input type="checkbox" checked>Inputs</li>
-          <li><input type="checkbox" checked>Dark mode toggle</li>
-          <li><input type="checkbox" checked>Favicon</li>
-          <li><input type="checkbox" checked>Add AN and FN slots</li>
+        <li><b>Other</b>
+          <ul class="todo-list">
+            <li><input type="checkbox">Display error message when two or more courses added conflict in slots (e.g.
+              FN1 and A)</li>
+            <li><input type="checkbox">"Download as PDF" button</li>
+            <li><input type="checkbox">Reminder Shortcut (iOS + iPadOS + macOS)</li>
+            <li><input type="checkbox">(Speculative) Google Calendar Integration</li>
+            <li><input type="checkbox" checked>js Bookmarklet (will make this app work without having to
+              enter any input -
+              extracts html from <a href="https://erp.iith.ac.in">IITH ERP website</a>)</li>
+            <li><input type="checkbox" checked>"Print" button</li>
+          </ul>
+        <li><input type="checkbox">(speculative++) Clean js and css code</li>
         </ul>
-      </li>
-      <li><b>Other</b>
-        <ul class="todo-list">
-          <li><input type="checkbox">Display error message when two or more courses added conflict in slots (e.g.
-            FN1 and A)</li>
-          <li><input type="checkbox">"Download as PDF" button</li>
-          <li><input type="checkbox">Reminder Shortcut (iOS + iPadOS + macOS)</li>
-          <li><input type="checkbox">(Speculative) Google Calendar Integration</li>
-          <li><input type="checkbox" checked>js Bookmarklet (will make this app work without having to
-            enter any input -
-            extracts html from <a href="https://erp.iith.ac.in">IITH ERP website</a>)</li>
-          <li><input type="checkbox" checked>"Print" button</li>
-        </ul>
-      <li><input type="checkbox">(speculative++) Clean js and css code</li>
-      </ul>
-      </li>
-    </details>
-  </section>
+        </li>
+      </details>
+    </section>
+    <dialog id="confirm-close-dialog">
+      <p class="discard-message-text">Discard changes?</p>
+      <form method="dialog">
+        <div class="confirm-close-dialog-btn-container">
+          <button id="cancel-btn" class="button">
+            Cancel
+          </button>
+          <button id="discard-btn" class="cancel-button">
+            Discard
+          </button>
+        </div>
+    </dialog>
+
+  </content>
 </body>
 
 <script src="./scripts/main.js"></script>

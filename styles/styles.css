@@ -1,6 +1,46 @@
 * {
   box-sizing: border-box;
-  font-family: "Segoe UI Variable Display", "Roboto", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont;
+  font-family: -apple-system,
+    BlinkMacSystemFont,
+    "Inter",
+    "IBM Plex Sans",
+    Segoe UI,
+    Helvetica,
+    Arial,
+    sans-serif;
+  --font-mono: ui-monospace,
+    SFMono-Regular,
+    "Cascadia Code",
+    "IBM Plex Mono",
+    "Roboto Mono",
+    "DejaVu Sans Mono",
+    "Liberation Mono",
+    Menlo,
+    Monaco,
+    "Consolas",
+    "Source Code Pro",
+    monospace
+}
+
+:root {
+  color-scheme: light dark;
+  --font-small: 0.875em;
+  --font-smaller: 0.8em;
+  --wrap-wide: 63em;
+  --wrap-normal: 37em;
+  --input-width: 20em;
+  --image-radius: 6px;
+  --line-height: 1.5;
+}
+
+.light {
+  /* forces light color-scheme */
+  color-scheme: light;
+}
+
+.dark {
+  /* forces dark color-scheme */
+  color-scheme: dark;
 }
 
 /* Remove gloss effect on select element on Safari  */
@@ -9,15 +49,18 @@ select {
 }
 
 :root {
-  font-family: "Segoe UI Variable Display", "Roboto", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont;
+  font-family: -apple-system,
+    BlinkMacSystemFont, "Segoe UI Variable Display", "Roboto", ui-sans-serif, system-ui;
 
   /* Flexoki Color Scheme */
   --paper: #FFFCF080;
   --text: var(--black);
+  color: var(--text);
 }
 
 p {
-  font-family: "Segoe UI Variable Display", "Roboto", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont;
+  font-family: -apple-system,
+    BlinkMacSystemFont, "Segoe UI Variable Display", "Roboto", ui-sans-serif, system-ui;
 
 }
 
@@ -31,7 +74,7 @@ p {
 .dark {
   --paper: #1a1818;
   --text: var(--base-50);
-
+  color: var(--text);
 }
 
 body {
@@ -40,7 +83,7 @@ body {
   margin: 0;
   background-color: var(--paper);
   /* transition: all 0.3s; */
-  color: var(--text)
+
 }
 
 
@@ -58,7 +101,8 @@ body {
 
 #theme-toggler {
   position: absolute;
-  right: 100px;
+  right: 0;
+  top: 0;
   padding: 0.618em;
   background-color: var(--theme-toggler-background-color);
   border: var(--theme-toggler-border);
@@ -99,7 +143,7 @@ body {
 #add-entry {
   border: 1px solid var(--add-course-border);
   border-radius: 4.235px;
-  display: flex;
+  display: contents;
   width: fit-content;
   padding: 10px;
   gap: 10px;
@@ -122,35 +166,52 @@ body {
   /* Looks good without this on macos, check later */
   /* padding-top: calc(0.2/1.9)em; */
   /* padding-bottom: 0.2em; */
+  height: auto;
+  max-height: 2.3em;
+}
+
+:root {
+  --input-course-code-placeholder-color: var(--base-400);
+}
+
+.dark {
+  --input-course-code-placeholder-color: var(--flexoki-500);
 }
 
 .inputs::placeholder {
   color: var(--input-course-code-placeholder-color);
 }
 
+
 .inputs.error {
   border: rgb(148, 40, 34);
   background-color: var(--red-150);
 }
 
+
 .submit-button,
 .submit-button:active,
 .submit-button:focus,
 .submit-button:focus-visible {
-  background-color: #3baba2;
-  border: 1px solid #038b7f;
-  color: white;
+  background-color: var(--flexoki-cyan-700);
+  border: 0.046em solid var(--flexoki-cyan-200);
+  color: var(--flexoki-cyan-50);
   /* appearance: none; */
   border-radius: 3.235px;
   line-height: 1.9;
   padding-left: 0.5em;
   padding-right: 0.5em;
   font-size: 1em;
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 1em;
 }
 
 .submit-button:focus {
   outline: none;
-  box-shadow: 0 0 0 1.21px #038b7f;
+  box-shadow: 0 0 0 0.05em #038b7f;
   /* box shadow on focus */
   transition: box-shadow 0.2s ease-in-out;
 }
@@ -236,7 +297,7 @@ td {
 }
 
 .dark {
-  --table-header-background-color: var(--base-900);
+  --table-header-background-color: var(--table-background-color);
   --table-header-color: var(--white)
 }
 
@@ -252,7 +313,7 @@ table th {
 /* Days: Colors */
 :root {
   --table-days-color: var(--base-850);
-  --table-days-background-color: var(--base-50);
+  /* --table-days-background-color: var(--base-50); */
   --table-right-border: 1.618px solid var(--base-300);
 
 }
@@ -261,18 +322,19 @@ table th {
   --table-days-background-color: var(--base-850);
   --table-right-border: 0.618px solid var(--base-50);
   --table-bottom-border: 0.618px solid var(--base-500);
-  --table-days-color: var(--base-100)
+  --table-days-color: var(--muted-text);
 }
 
 td.day {
   text-align: left;
   color: var(--table-days-color);
-  background-color: var(--table-days-background-color);
+  background-color: var(--table-background-color);
   /* border-right: var(--table-right-border); */
   /* border-bottom: var(--table-bottom-border); */
   padding-left: 1.25em !important;
   padding-right: 1.25em !important;
   text-transform: uppercase;
+  font-family: var(--font-mono);
 
 }
 
@@ -360,6 +422,7 @@ h2 {
 .an4,
 .an5 {
   font-weight: 500;
+  cursor: pointer;
 }
 
 .a,
@@ -433,8 +496,8 @@ h2 {
   --body-padding: 4.235em;
 
   --h1-line-height: 1.129;
-  --h1-font-weight: 700;
-  --h1-font-size: 2.235em;
+  --h1-font-weight: 500;
+  --h1-font-size: 1.618em;
   --h1-letter-spacing: -0.022em;
 
   --h2-line-height: 1.129;
@@ -556,5 +619,181 @@ tr>td[colspan="3"] {
 
 .caution {
   color: var(--red-400);
+
+}
+
+#add-entry {
+  display: flex;
+  flex-wrap: wrap;
+  flex-flow: wrap;
+  position: relative;
+}
+
+/* Modal colors */
+:root {
+  --modal-background-color: var(--flexoki-150);
+}
+
+.dark {
+  --modal-background-color: var(--flexoki-850);
+  --modal-border: 1px solid var(--flexoki-700);
+  --modal-message-text-color: var(--flexoki-100);
+  --cancel-button-border: var(--flexoki-red-300);
+  --cancel-button-background-color: var(--flexoki-red-800);
+  --cancel-button-hover-background-color: var(--flexoki-red-600);
+  --cancel-button-text-color: var(--flexoki-red-100);
+  --cancel-button-hover-text-color: var(--flexoki-red-50);
+}
+
+#confirm-close-dialog {
+  padding: 10px;
+  margin: 10px auto;
+  position: fixed;
+  top: 30%;
+  border-radius: 0.4em;
+  background-color: var(--modal-background-color);
+  border: var(--modal-border);
+}
+
+.confirm-close-dialog-btn-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.discard-message-text {
+  /* font-weight: bold; */
+  /* font-size: 1.5rem; */
+  color: var(--modal-message-text-color);
+}
+
+#tasks-container {
+  height: 100%;
+  overflow-y: auto;
+}
+
+.task {
+  margin: 5px 0;
+}
+
+.hidden {
+  display: none;
+}
+
+.cancel-button {
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  line-height: 1.618;
+  border: 1px solid var(--cancel-button-border);
+  background-color: var(--cancel-button-background-color);
+  border-radius: 0.2em;
+  margin: 0 1em;
+  font-size: 1.1em;
+  color: var(--cancel-button-text-color);
+}
+
+.cancel-button:hover,
+.cancel-button:focus {
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  line-height: 1.618;
+  /* border: 2px solid var(--cancel-button-border); */
+  background-color: var(--cancel-button-hover-background-color);
+  border-radius: 0.2em;
+  margin: 0 1em;
+  font-size: 1.1em;
+  color: var(--cancel-button-hover-text-color);
+  box-shadow: 0 0 0 0.05em var(--cancel-button-border);
+  /* box shadow on focus */
+  transition: 0.1s ease-in-out;
+  outline: none;
+}
+
+.cancel-button:focus {
+  outline: none;
+}
+
+div.bar {
+  width: 0.01em;
+  height: auto;
+  border: 1px solid red;
+}
+
+
+
+.times th {
+  /* display: table; */
+  text-align: left;
+  padding-left: 0;
+  left: -1.2em;
+  position: relative;
+  /* background-color: transparent; */
+  font-family: var(--font-mono);
+  font-size: 0.7em;
+  color: light-dark(red, var(--base-50));
+}
+
+.testi::after {
+  /* content: " huo "; */
+  display: block;
+  clear: both;
+  border: 1px solid red;
+}
+
+
+.inputs.course-name {
+  font-size: 2em;
+  width: 100%;
+  background-color: transparent;
+  border: none;
+  padding: 0;
+}
+
+.inputs.instructors {
+  width: 100%;
+  background-color: transparent !important;
+  border: none;
+  padding: 0;
+}
+
+/* for landscape devices: laptop tabs */
+@media (min-width: 1024px) {
+  .inputs.course-name {
+    font-size: 2em;
+    width: 100%;
+    background-color: transparent;
+    border: none;
+    padding: 0;
+  }
+
+  .inputs.instructors {
+    width: 100%;
+    background-color: transparent !important;
+    border: none;
+    padding: 0;
+  }
+
+  body {
+    padding: 0;
+    position: relative;
+  }
+
+  content {
+    position: relative;
+    width: 46em;
+    display: block;
+    margin: auto;
+    margin-top: 4em;
+  }
+
+  .wide {
+    /* padding: 1.5em 0; */
+    max-width: Min(100vw, var(--wrap-wide));
+    width: Min(100vw, var(--wrap-wide));
+    margin-left: calc((Min(100vw, var(--wrap-wide)) - 100%) / -2);
+  }
+
 
 }
